@@ -22,7 +22,7 @@ Round progress can have an associated data in JSON format. This data can be retr
 
 > This will print on console the data associated to the round progress whose id is 'id_round' when the user clicks on it.  
 
-### Example
+### Code Sample
 ```HTML
  <round-progress
      id="1"
