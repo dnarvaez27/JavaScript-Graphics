@@ -12,4 +12,4 @@ This library creates a graphical linear progress bar in a easy way, implementing
 ```
 
 ### Result
-![]()
+![](https://github.com/dnarvaez27/JavaScript-Graphics/blob/master/imgs/LinearProgressBar.JPG)
