@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Round Progress</title>
+    <script type="text/javascript" src="round-progress.js"></script>
+    <style>
+
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #header {
+            background-color: #212121;
+            display: grid;
+            color: white;
+            box-shadow: 0 -1px 10px 1px #212121;
+        }
+
+        #title {
+            text-align: center;
+        }
+
+        #progress {
+            position: absolute !important;
+            left: 50% !important;
+            top: 42% !important;
+            transform: translate(-50%, -50%);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        #progress div {
+            text-align: center;
+        }
+
+        code {
+            text-align: left;
+        }
+
+        #code-sample {
+            position: absolute;
+            bottom: 5px;
+            border: 1px solid black;
+            padding: 2px;
+            left: 5px;
+        }
+
+        #listener {
+            position: absolute;
+            bottom: 5px;
+            border: 1px solid black;
+            padding: 2px;
+            left: calc(50% + 15px);
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div id="header">
+        <h1 id="title">Round Progress - Sample</h1>
+    </div>
+
+    <div id="progress">
+        <div>
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=30"
+                    stroke="3"
+                    data='{"hola": 123}'
+                    style="color: gold"
+            ></round-progress>
+
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=60"
+                    stroke="3"
+                    data='{"hola": 123}'
+                    style="color: gold"
+            ></round-progress>
+
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=90"
+                    stroke="3"
+                    data='{"hola": 123}'
+                    style="color: gold"
+            ></round-progress>
+        </div>
+
+        <div>
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=90"
+                    stroke="9"
+                    data='{"hola": 123}'
+                    style="color: #C2024F; font: 50px Consolas, sans-serif"
+            ></round-progress>
+
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=30"
+                    stroke=""
+                    data='{"hola": 123}'
+                    style="color: #FCB13F; font: 25px Chiller, sans-serif"
+            ></round-progress>
+
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=60"
+                    stroke="6"
+                    data='{"hola": 123}'
+                    style="color: #04BBBF"
+            ></round-progress>
+
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=30"
+                    stroke="3"
+                    data='{"hola": 123}'
+                    style="color: #D2D945;"
+            ></round-progress>
+
+
+        </div>
+
+        <div>
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=90"
+                    stroke="9"
+                    data='{"hola": 123}'
+                    style="color: #C2024F; text-decoration-color: #04BBBF;"
+            ></round-progress>
+
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=30"
+                    stroke=""
+                    data='{"hola": 123}'
+                    style="color: #FCB13F; text-decoration-color: #FF594F"
+            ></round-progress>
+
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=60"
+                    stroke="6"
+                    data='{"hola": 123}'
+                    style="color: #04BBBF;"
+            ></round-progress>
+
+            <round-progress
+                    id="1"
+                    value="50"
+                    radio=30"
+                    stroke="3"
+                    data='{"hola": 123}'
+                    style="color: #D2D945; text-decoration-color: rgba(33,33,33,0.5)"
+            ></round-progress>
+
+
+        </div>
+    </div>
+
+    <div>
+        <div id="code-sample">
+        <pre>
+            &lt;round-progress
+                    id=&quot;1&quot;
+                    value=&quot;50&quot;
+                    radio=30&quot;
+                    stroke=&quot;&quot;
+                    data='{&quot;hola&quot;: 123}'
+                    style=&quot;color: #FCB13F; font: 25px Chiller, sans-serif; text-decoration-color: #FF594F&quot;
+            &gt;&lt;/round-progress&gt;
+        </pre>
+        </div>
+
+        <div id="listener">
+            <h3>Add Click Listener</h3>
+            <pre>
+            document.getElementById( 'id_round' ).addMouseListener( function ( data ) {
+                console.log( data );
+            } );
+        </pre>
+        </div>
+    </div>
+
+    <script>
+        // self executing function here
+        (function () {
+            // your page initialization code here
+            // the DOM will be available here
+
+            document.getElementById( '1' ).addMouseListener( function ( data ) {
+                console.log( data );
+            } );
+
+        })();
+    </script>
+</body>
+</html>
