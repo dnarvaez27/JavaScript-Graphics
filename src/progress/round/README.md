@@ -1,5 +1,10 @@
 # Round Progress
 This library creates a graphical rounded progress in a easy way, implementing an HTML Canvas.
+> <small>**Important:** This library was made using Custom Elements, from Web Components, which is ONLY supported in Chrome, Opera and Safari. 
+    Firefox is developing its support and Edge is considering.  
+    For more information see: https://www.webcomponents.org/  
+    _Soon I will be uploading an all browser compatible library_
+  </small>
 
 ### Usage
 To use this library make it through the ``round-progress`` custom HTML tag. This tag, has the following attributes:  
