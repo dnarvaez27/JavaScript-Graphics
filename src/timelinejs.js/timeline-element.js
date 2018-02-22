@@ -322,7 +322,6 @@ class Line extends HTMLElement {
       this.style.textAlign = 'center';
       this.center = this.widthTimeLine / 2;
 
-      //TODO
       minWidth = Math.min( (this.widthTimeLine / 2 ) - itemsLineMargin - ( (margin + padding) * 2), 150 );
 
       this.mainLine = document.createElement( 'div' );

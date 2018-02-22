@@ -11,8 +11,7 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-function TimeLine() {
-  let timeline = this;
+function TimeLine () {
   // CONSTANTES
   // General
   const lineWidth = 5;
@@ -35,6 +34,7 @@ function TimeLine() {
   let months = [ 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre' ];
 
   // ATRIBUTOS
+  let canvas;
   let ctx;
   let height = 0;
   let width = 0;
@@ -45,19 +45,9 @@ function TimeLine() {
   let tags = [];
   let tagOnMouse;
 
+  let timeline = this;
   // USER-CONFIG
-  timeline.canvas = undefined;
-  timeline.dataTimeLine = [
-    {
-      texto: '',
-      date: new Time(),
-      style: {
-        background: '',
-        foreground: '',
-        accent: ''
-      }
-    }
-  ];
+  timeline.dataTimeLine = [];
 
   timeline.fontTag_timeline = '15px Arial';
   timeline.fontTagMin_timeline = '11px Arial';
@@ -73,11 +63,11 @@ function TimeLine() {
   timeline.tagMouseIn = undefined;
   timeline.tagMouseOut = undefined;
 
-  timeline.init = function() {
-    timeline.canvas = timeline.canvas || document.getElementById( timeline.idCanvas_timeline );
-    ctx = timeline.canvas.getContext( '2d' );
+  timeline.init = function () {
+    canvas = document.getElementById( timeline.idCanvas_timeline );
+    ctx = canvas.getContext( '2d' );
 
-    timeline.dataTimeLine.sort( function( a, b ) {
+    timeline.dataTimeLine.sort( function ( a, b ) {
       if( a.date.year === b.date.year ) {
         if( a.date.month === b.date.month ) {
           if( a.date.day === b.date.day ) {
@@ -101,8 +91,8 @@ function TimeLine() {
     width -= window.getComputedStyle( parent ).padding.replace( /[^0-9.]/g, '' );
     middle = width / 2;
 
-    timeline.canvas.width = width;
-    timeline.canvas.height = height + margin;
+    canvas.width = width;
+    canvas.height = height + margin;
 
     lastPoint = margin;
 
@@ -112,9 +102,9 @@ function TimeLine() {
     draw();
   };
 
-  function initTags() {
+  function initTags () {
     tags = [];
-    timeline.dataTimeLine.forEach( function( item ) {
+    timeline.dataTimeLine.forEach( function ( item ) {
       let tag = new Tag( 0, 0, 0, 0 );
       tag.data = item;
       tag.calculateSize();
@@ -122,41 +112,41 @@ function TimeLine() {
     } );
   }
 
-  function calcularAltura() {
+  function calcularAltura () {
     let h = 0;
-    tags.forEach( function( tag ) {
+    tags.forEach( function ( tag ) {
       h += tag.height + marginTag;
     } );
     return h;
   }
 
-  function setConfig() {
+  function setConfig () {
     ctx.lineWidth = lineWidth;
     ctx.fillStyle = timeline.backgroundTags_timeline;
     ctx.strokeStyle = timeline.backgroundTags_timeline;
     ctx.shadowBlur = 0;
   }
 
-  function setShadow() {
+  function setShadow () {
     ctx.shadowBlur = shadowBlur;
     ctx.shadowColor = colorShadow;
   }
 
-  function draw() {
-    ctx.clearRect( 0, 0, timeline.canvas.width, timeline.canvas.height );
+  function draw () {
+    ctx.clearRect( 0, 0, canvas.width, canvas.height );
     drawLine();
-    tags.forEach( function( tag ) {
+    tags.forEach( function ( tag ) {
       drawPoint( middle, lastPoint, tag );
     } );
   }
 
-  function drawLine() {
+  function drawLine () {
     ctx.moveTo( middle, margin );
     ctx.lineTo( middle, height - tags[ tags.length - 1 ].height + tagOffsetY );
     ctx.stroke();
   }
 
-  function drawPoint( x, y, tag ) {
+  function drawPoint ( x, y, tag ) {
     setConfig();
     setShadow();
 
@@ -178,7 +168,7 @@ function TimeLine() {
     setConfig();
   }
 
-  function associateTag( x, y, side, tag ) {
+  function associateTag ( x, y, side, tag ) {
     setConfig();
     setShadow();
 
@@ -204,9 +194,9 @@ function TimeLine() {
     lastPoint += tag.height + marginTag;
   }
 
-  function setListeners() {
-    timeline.canvas.addEventListener( 'mousemove',
-      function( e ) {
+  function setListeners () {
+    canvas.addEventListener( 'mousemove',
+      function ( e ) {
         let tag = (getTagOnPoint( e.offsetX, e.offsetY ));
         if( tag !== undefined && tagOnMouse === undefined ) {
           document.getElementById( timeline.idCanvas_timeline ).style.cursor = 'pointer';
@@ -233,36 +223,36 @@ function TimeLine() {
         }
       }, false );
 
-    timeline.canvas.addEventListener( 'mouseup',
-      function() {
+    canvas.addEventListener( 'mouseup',
+      function () {
         if( tagOnMouse !== undefined && timeline.tagMouseClick !== undefined ) {
           timeline.tagMouseClick( tagOnMouse );
         }
       }, false );
   }
 
-  function getTagOnPoint( x, y ) {
-    return tags.filter( function( item ) {
+  function getTagOnPoint ( x, y ) {
+    return tags.filter( function ( item ) {
       return item.containsPoint( x, y );
     } )[ 0 ];
   }
 
   // CLASES
-  function Tag( x, y, width, height, data ) {
+  function Tag ( x, y, width, height, data ) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
     this.data = data;
     this.side = false;
-    this.equals = function( tag2 ) {
+    this.equals = function ( tag2 ) {
       return ( this.x === tag2.x ) && ( this.y === tag2.y ) && ( this.width === tag2.width ) && ( this.height === tag2.height );
     };
-    this.containsPoint = function( x, y ) {
+    this.containsPoint = function ( x, y ) {
       return (x > this.x && x < this.x + this.width) && (y > this.y && y < this.y + this.height);
     };
 
-    this.pintar = function( ctx ) {
+    this.pintar = function ( ctx ) {
       let self = this;
 
       // Rectangle
@@ -270,7 +260,7 @@ function TimeLine() {
       setShadow();
       ctx.moveTo( this.x, this.y );
       ctx.rect( this.x, this.y, this.width, this.height );
-      ctx.fillStyle = this.data.style.background;
+      ctx.fillStyle = this.data.color.background;
       ctx.fill();
       setConfig();
       ctx.closePath();
@@ -284,18 +274,18 @@ function TimeLine() {
       let monthDay = months[ this.data.date.month - 1 ] + ' ' + this.data.date.day;
 
       ctx.beginPath();
-      ctx.fillStyle = this.data.style.accent;
+      ctx.fillStyle = this.data.color.accent;
       ctx.font = timeline.fontBigBoldTag_timeline;
       ctx.fillText( year, this.side ? this.x - wLineTag - ctx.measureText( year ).width - radPoint - yearOffsetX : this.x + this.width + wLineTag + radPoint + yearOffsetX, this.y + tagOffsetY + (yearFontSize / 2 ) + yearOffsetY );
 
       ctx.font = timeline.fontBoldTag_timeline;
-      ctx.fillStyle = this.data.style.foreground;
+      ctx.fillStyle = this.data.color.foreground;
       ctx.fillText( monthDay, this.x + marginTag, this.y + dateFontSize + paddingDate );
 
       ctx.lineWidth = dateLineWidth;
       ctx.moveTo( this.x + marginTag, this.y + (paddingDate * 2) + dateFontSize );
       ctx.lineTo( this.x + this.width - marginTag, this.y + (paddingDate * 2) + dateFontSize );
-      ctx.strokeStyle = this.data.style.foreground;
+      ctx.strokeStyle = this.data.color.foreground;
       ctx.stroke();
       ctx.closePath();
 
@@ -304,7 +294,7 @@ function TimeLine() {
       let fontMinSize = parseInt( timeline.fontTagMin_timeline.split( ' ' )[ 0 ].substring( 0, 2 ) );
       ctx.font = timeline.fontTag_timeline;
       let actualY = this.y + (paddingDate * 3) + dateFontSize + fontSize;
-      this.onEachLine( function( line ) {
+      this.onEachLine( function ( line ) {
         if( line.startsWith( ' ' ) ) {
           line = line.substring( 1 );
         }
@@ -323,7 +313,7 @@ function TimeLine() {
       } );
     };
 
-    this.pintarSelected = function( ctx ) {
+    this.pintarSelected = function ( ctx ) {
       let self = this;
 
       // Rectangle
@@ -345,7 +335,7 @@ function TimeLine() {
       let monthDay = months[ this.data.date.month - 1 ] + ' ' + this.data.date.day;
 
       ctx.beginPath();
-      ctx.fillStyle = this.data.style.accent;
+      ctx.fillStyle = this.data.color.accent;
       ctx.font = timeline.fontBigBoldTag_timeline;
       ctx.fillText( year, this.side ? this.x - wLineTag - ctx.measureText( year ).width - radPoint - yearOffsetX : this.x + this.width + wLineTag + radPoint + yearOffsetX, this.y + tagOffsetY + (yearFontSize / 2 ) + yearOffsetY );
 
@@ -365,7 +355,7 @@ function TimeLine() {
       let fontMinSize = parseInt( timeline.fontTagMin_timeline.split( ' ' )[ 0 ].substring( 0, 2 ) );
       ctx.font = timeline.fontTag_timeline;
       let actualY = this.y + (paddingDate * 3) + dateFontSize + fontSize;
-      this.onEachLine( function( line ) {
+      this.onEachLine( function ( line ) {
         if( line.startsWith( ' ' ) ) {
           line = line.substring( 1 );
         }
@@ -384,13 +374,13 @@ function TimeLine() {
       } );
     };
 
-    this.calculateSize = function() {
+    this.calculateSize = function () {
       let self = this;
       this.height = 0;
       let sizeFont = parseInt( timeline.fontTag_timeline.split( ' ' )[ 0 ].substring( 0, 2 ) );
       let sizeMinFont = parseInt( timeline.fontTagMin_timeline.split( ' ' )[ 0 ].substring( 0, 2 ) );
 
-      this.onEachLine( function( line ) {
+      this.onEachLine( function ( line ) {
         self.height += line.startsWith( '\_' ) ? sizeMinFont : sizeFont + lineSpacing;
       } );
 
@@ -404,7 +394,7 @@ function TimeLine() {
       return { height: this.height, width: this.width };
     };
 
-    this.onEachLine = function( exe ) {
+    this.onEachLine = function ( exe ) {
       ctx.font = timeline.fontTag_timeline;
       let actualString = '';
       let lastWord = '';
@@ -453,68 +443,4 @@ function TimeLine() {
       }
     };
   }
-
-  function Time( year, month, day ) {
-    this.year = year;
-    this.month = month;
-    this.day = day;
-  }
 }
-
-document.registerElement( 'time-line', class extends HTMLDivElement {
-  constructor() {
-    super();
-  }
-
-  createdCallback() {
-    lettimeline.canvas = document.createElement( 'canvas' );
-    if( this.getAttribute( 'canvas-id' ) ) {
-      timeline.canvas.id = this.getAttribute( 'canvas-id' );
-    }
-    this.style = 'display:inline-block;';
-    this.appendChild( timeline.canvas );
-    this.paint();
-  }
-
-  attributeChangedCallback() {
-    this.paint();
-  }
-
-  paint() {
-
-    let timeline = new TimeLine();
-
-    let linearProgress = new LinearProgress();
-    linearProgress.canvas = this.querySelector( 'canvas' );
-    linearProgress.lineWidth = parseInt( this.getAttribute( 'stroke' ) ) || 10;
-    linearProgress.width = parseInt( this.getAttribute( 'width' ) );
-    linearProgress.progress = this.getAttribute( 'value' );
-
-    if( this.style.color ) {
-      linearProgress.accent = this.style.color;
-    }
-    if( this.style.textDecorationColor ) {
-      linearProgress.background = this.style.textDecorationColor;
-    }
-    if( this.style.font ) {
-      linearProgress.font = this.style.font;
-    }
-
-    linearProgress.init();
-    this.style.height = linearProgress.canvas.height + 'px';
-  }
-} );
-
-document.registerElement( 'time-line-item', class extends HTMLDivElement {
-  constructor() {
-    super();
-  }
-
-  createdCallback() {
-
-  }
-
-  attributeChangedCallback() {
-    this.paint();
-  }
-} );
