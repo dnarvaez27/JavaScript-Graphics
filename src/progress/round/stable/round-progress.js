@@ -147,22 +147,24 @@ let round_progress = {
             $( function () {
                 round_progress.data.round_progress_ids.forEach( function ( idContainer ) {
                     let container = document.getElementById( idContainer );
-                    while ( container.firstChild ) {
-                        container.removeChild( this.firstChild );
-                    }
+                    if ( container ) {
+                        while ( container.firstChild ) {
+                            container.removeChild( this.firstChild );
+                        }
 
-                    let canvas = document.createElement( 'canvas' );
-                    if ( container.getAttribute( 'canvas-id' ) ) {
-                        canvas.id = this.getAttribute( 'canvas-id' );
-                    }
-                    container.style.display = 'inline-block';
-                    container.appendChild( canvas );
-                    let rProgress = paint( idContainer );
+                        let canvas = document.createElement( 'canvas' );
+                        if ( container.getAttribute( 'canvas-id' ) ) {
+                            canvas.id = this.getAttribute( 'canvas-id' );
+                        }
+                        container.style.display = 'inline-block';
+                        container.appendChild( canvas );
+                        let rProgress = paint( idContainer );
 
-                    if ( rProgress ) {
-                        rProgress.setClickListener( function () {
-                            round_progress.data.round_progress_listener( JSON.parse( container.getAttribute( 'data' ) ) );
-                        } );
+                        if ( rProgress ) {
+                            rProgress.setClickListener( function () {
+                                round_progress.data.round_progress_listener( JSON.parse( container.getAttribute( 'data' ) ) );
+                            } );
+                        }
                     }
                 } );
             } );
@@ -170,6 +172,7 @@ let round_progress = {
     },
     init: function ( parent ) {
         $( function () {
+            round_progress.data.round_progress_ids = [];
             if ( parent ) {
                 $( parent ).find( '[id^=\'round_progress\']' ).each( function ( i, item ) {
                     round_progress.data.round_progress_ids.push( item.id );
