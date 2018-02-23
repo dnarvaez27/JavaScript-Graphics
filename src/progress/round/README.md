@@ -1,5 +1,5 @@
 # Round Progress
-This library creates a graphical rounded progress in a easy way, implementing an HTML Canvas.
+This library creates a graphical rounded progress in an easy way, implementing an HTML Canvas.
 <small>
 > **Important:** This library was made using Custom Elements, from Web Components, which is ONLY supported in Chrome, Opera and Safari. 
     Firefox is developing its support and Edge is considering.  
@@ -33,7 +33,7 @@ To use this library make it through the ``round-progress    `` custom HTML tag. 
 Round progress can have an associated data in JSON format. This data can be retrieved when the user clicks on the round progress.
 
 ##### Stable
-in stable version 
+In stable version 
 To implement the Callback of this listener, just set the attirbute ``round_progress_listener `` in ``round_progress.data``, as following:
 ```JavaScript
 round_progress.data.round_progress_listener = function ( data ) {

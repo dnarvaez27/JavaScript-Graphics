@@ -1,5 +1,5 @@
 # Linear Progress Bar
-This library creates a graphical linear progress bar in a easy way, implementing an HTML Canvas.  
+This library creates a graphical linear progress bar in an easy way, implementing an HTML Canvas.  
 <small>
 > **Important:** If you are using the **experimental version**, consider that this library was made using Custom Elements, from Web Components, which is ONLY supported in Chrome, Opera and Safari. 
     Firefox is developing its support and Edge is considering.  
