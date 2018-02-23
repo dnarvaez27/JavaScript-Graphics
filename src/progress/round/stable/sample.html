@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="round-progress.js"></script>
+
+    <script>
+        round_progress.data.round_progress_listener = function ( ev ) {
+            console.log( ev );
+        };
+        round_progress.init( '#hola' );
+    </script>
+
+</head>
+<body>
+    <div id="hola">
+        <div id="round_progress_1"
+             value="50"
+             radio=30"
+             stroke="3"
+             data='{"hola": 123}'
+             style="color: gold"
+        ></div>
+        <div id="round_progress_2"
+             value="80"
+             radio=30"
+             stroke="3"
+             data='{"hola": 456}'
+             style="color: #C2024F"
+        ></div>
+    </div>
+</body>
+</html>
