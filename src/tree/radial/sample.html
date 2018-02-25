@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 98%;
+            padding: 0;
+            margin: 0;
+        }
+
+        #radial {
+            height: 90%;
+        }
+    </style>
+    <script src="svg.min.js"></script>
+    <script src="../../datastructures/tree/tree.js"></script>
+    <script src="radial.js"></script>
+</head>
+<body>
+    <div id="radial"></div>
+    <script>
+        let ntree = new Tree();
+        ntree.add( {
+                       id: 0,
+                       data: {
+                           style: {
+                               bg: '#009696',
+                           },
+                           display: {
+                               normal: 'Me',
+                               hover: 'David\n Narvaez',
+                               normal_svg: '',
+                               hover_svg: 'David\n Narvaez'
+                           }
+                       }
+                   }, 0 );
+        ntree.add( { id: 1, data: 1 }, 0 );
+        ntree.add( { id: 2, data: 2 }, 1 );
+        ntree.add( { id: 3, data: 3 }, 1 );
+        ntree.add( { id: 4, data: 4 }, 1 );
+        ntree.add( { id: 5, data: 5 }, 1 );
+        ntree.add( { id: 6, data: 6 }, 2 );
+        ntree.add( { id: 7, data: 7 }, 2 );
+        ntree.add( { id: 8, data: 8 }, 2 );
+        ntree.add( { id: 9, data: 9 }, 2 );
+        ntree.add( { id: 10, data: 10 }, 4 );
+        ntree.add( { id: 11, data: 11 }, 4 );
+        ntree.add( { id: 12, data: 12 }, 2 );
+        ntree.add( { id: 13, data: 13 }, 2 );
+        ntree.add( { id: 14, data: 14 }, 3 );
+        ntree.add( { id: 15, data: 15 }, 11 );
+        ntree.add( { id: 16, data: 16 }, 11 );
+        ntree.add( { id: 17, data: 17 }, 4 );
+        ntree.add( { id: 18, data: 18 }, 4 );
+        ntree.add( { id: 19, data: 19 }, 5 );
+        ntree.add( { id: 20, data: 20 }, 5 );
+        ntree.add( { id: 21, data: 21 }, 19 );
+
+        radial_config.container_id = 'radial';
+        radial_config.tree = ntree;
+        radial_config.clickListener = function ( elem ) {
+            console.log( elem );
+        };
+        radial_attrs.inc = 80;
+        radial_attrs.size = 30;
+        radial_attrs.padding = 40;
+        radial_attrs.style.node.anim.scale = 2.5;
+        // radial_attrs.style.ring.stroke = '#ff0000';
+    </script>
+</body>
+</html>
