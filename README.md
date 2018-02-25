@@ -1,12 +1,11 @@
 # JavaScript-Graphics
 
-Multiple JavaScript made libraries  
+Multiple JavaScript Graphic libraries   
 
 ## Index
 * Progress
   * Linear
   * Rounded
-* Charts
-  * PieCharts
-* Timeline
+* Timeline (Needs Fix)
 * Tree
+  * Radial
