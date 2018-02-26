@@ -37,10 +37,11 @@ let radial_attrs = {
 let radial_config = {
     container_id: undefined,
     tree: undefined,
-    clickListener: undefined
+    clickListener: undefined,
+    loadOnReady: true,
+    ringStart: 0
 };
 let points = [];
-
 let utils = {
     extractNumber: function ( str ) {
         return str.match( /[0-9]+\.*[0-9]*/g )[ 0 ];
@@ -90,11 +91,13 @@ let utils = {
     }
 };
 
-SVG.on( document, 'DOMContentLoaded', function () {
-    restart();
-} );
+if ( radial_config.loadOnReady ) {
+    SVG.on( document, 'DOMContentLoaded', function () {
+        radial_restart();
+    } );
+}
 
-function restart() {
+function radial_restart() {
     let draw = SVG( radial_config.container_id ).size( '100%', '100%' );
     draw.style( { padding: (10 + radial_attrs.size) + 'px' } );
 
@@ -109,7 +112,6 @@ function restart() {
         this.rad = rad;
         this.nodo = nodo;
         this.draw = function () {
-            let self = this;
             let grupo = draw.group();
             grupo.style( 'cursor', 'pointer' );
 
@@ -118,14 +120,27 @@ function restart() {
             circle.attr( { fill: ((nodo.element.style && nodo.element.style.bg) || radial_attrs.style.node.bg) } );
             grupo.add( circle );
 
-            let text = undefined;
+            let text, textContent = undefined;
             if ( this.nodo.element.display && (this.nodo.element.display.normal || this.nodo.element.display.normal_svg) ) {
                 if ( this.nodo.element.display.normal ) {
                     text = draw.text( this.nodo.element.display.normal.toString() );
-                    text.center( this.x, this.y );
                     text.style( { fill: ((nodo.element.style && nodo.element.style.fg) || radial_attrs.style.node.fg) } );
+                    text.font( {
+                                   family: 'Helvetica',
+                                   size: 10
+                               } );
+                    text.center( this.x, this.y );
 
-                    grupo.add( text );
+                    textContent = draw.text( this.nodo.element.display.hover.toString() );
+                    textContent.style( { fill: ((nodo.element.style && nodo.element.style.fg) || radial_attrs.style.node.fg) } );
+                    textContent.font( {
+                                          family: 'Helvetica',
+                                          size: 10 * radial_attrs.style.node.anim.textScale
+                                      } );
+                    textContent.center( this.x, this.y );
+                    textContent.hide();
+
+                    grupo.add( textContent );
                 }
                 else {
                     let g = draw.group();
@@ -146,20 +161,20 @@ function restart() {
                 }
             } );
             grupo.mouseover( function () {
-                grupo.animate( { duration: 60 } ).scale( radial_attrs.style.node.anim.scale );
+                grupo.front();
                 if ( text ) {
-                    text.scale( radial_attrs.style.node.anim.textScale );
-                    text.text( self.nodo.element.display.hover );
-                    text.center( self.x, self.y );
+                    text.hide();
+                    textContent.show();
                 }
+                grupo.animate( { duration: 60 } ).scale( radial_attrs.style.node.anim.scale );
             } );
             grupo.mouseout( function () {
-                grupo.animate( { duration: 60 } ).scale( 1 );
                 if ( text ) {
-                    text.scale( 1 );
-                    text.text( self.nodo.element.display.normal.toString() );
-                    text.center( self.x, self.y );
+                    text.show();
+                    textContent.hide();
+                    text.front();
                 }
+                grupo.animate( { duration: 60 } ).scale( 1 );
             } );
         };
     }
@@ -176,9 +191,14 @@ function restart() {
             radial_attrs.inc = height / (treeHeight - 1);
             radial_attrs.inc /= 2;
         }
-        for ( let i = treeHeight - 1; i > 0; i-- ) {
+
+        for ( let i = 1 + radial_config.ringStart; i <= treeHeight + radial_config.ringStart - 1; i++ ) {
             paintRing( i * radial_attrs.inc );
         }
+
+        // for ( let i = treeHeight - 1; i > 0; i-- ) {
+        //     paintRing( i * radial_attrs.inc );
+        // }
     })();
     (function paint( nodo, angulo, radio ) {
         let childPoints = [];
@@ -206,7 +226,7 @@ function restart() {
             comp = utils.algebra.getComps( radio, angulo + ((actualAngulo - angulo) / 2) - (utils.algebra.anguloLR( radial_attrs.size, radio )) );
         }
 
-        if ( !nodo.element.hide ) {
+        if ( nodo.element && !nodo.element.hide ) {
             childPoints.forEach( function ( point ) {
                 let origenX = center.x + comp[ 0 ];
                 let origenY = center.y - comp[ 1 ];
@@ -231,5 +251,5 @@ function restart() {
             points.push( p );
         }
         return { angulo: actualAngulo, pos: comp };
-    })( radial_config.tree.root, 0, 0 );
+    })( radial_config.tree.root, 0, radial_config.ringStart * radial_attrs.inc );
 }

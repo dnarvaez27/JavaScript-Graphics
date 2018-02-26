@@ -12,7 +12,7 @@
         }
 
         #radial {
-            height: 90%;
+            height: 150%;
         }
     </style>
     <script src="svg.min.js"></script>
@@ -22,52 +22,645 @@
 <body>
     <div id="radial"></div>
     <script>
-        let ntree = new Tree();
-        ntree.add( {
-                       id: 0,
-                       data: {
-                           style: {
-                               bg: '#009696',
-                           },
-                           display: {
-                               normal: 'Me',
-                               hover: 'David\n Narvaez',
-                               normal_svg: '',
-                               hover_svg: 'David\n Narvaez'
-                           }
-                       }
-                   }, 0 );
-        ntree.add( { id: 1, data: 1 }, 0 );
-        ntree.add( { id: 2, data: 2 }, 1 );
-        ntree.add( { id: 3, data: 3 }, 1 );
-        ntree.add( { id: 4, data: 4 }, 1 );
-        ntree.add( { id: 5, data: 5 }, 1 );
-        ntree.add( { id: 6, data: 6 }, 2 );
-        ntree.add( { id: 7, data: 7 }, 2 );
-        ntree.add( { id: 8, data: 8 }, 2 );
-        ntree.add( { id: 9, data: 9 }, 2 );
-        ntree.add( { id: 10, data: 10 }, 4 );
-        ntree.add( { id: 11, data: 11 }, 4 );
-        ntree.add( { id: 12, data: 12 }, 2 );
-        ntree.add( { id: 13, data: 13 }, 2 );
-        ntree.add( { id: 14, data: 14 }, 3 );
-        ntree.add( { id: 15, data: 15 }, 11 );
-        ntree.add( { id: 16, data: 16 }, 11 );
-        ntree.add( { id: 17, data: 17 }, 4 );
-        ntree.add( { id: 18, data: 18 }, 4 );
-        ntree.add( { id: 19, data: 19 }, 5 );
-        ntree.add( { id: 20, data: 20 }, 5 );
-        ntree.add( { id: 21, data: 21 }, 19 );
+        let tree = new Tree();
+        tree.add( { id: 0, data: { hide: true } }, undefined );
+
+        tree.add( {
+                      id: 'ISIS-1101',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1001',
+                              hover: 'Introduction to Systems \nand Computer Engineer'
+                          },
+                          subject: {
+                              name: 'Introduction to Systems and Computer Engineer',
+                              semester: '2015-20',
+                              code: 'ISIS-1001',
+                              professor: [ 'Francisco Rueda Fajardo' ]
+                          }
+                      }
+                  }, 0 );
+        tree.add( {
+                      id: 'ISIS-1204',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1204',
+                              hover: 'Alorithms and\nObject-Oriented\nPrograming I (Honors)'
+                          },
+                          subject: {
+                              name: 'Alorithms and Object-Oriented Programing I (Honors)',
+                              semester: '2015-20',
+                              code: 'ISIS-1204',
+                              professor: [ 'Mario Eduardo Sanchez Puccini' ]
+                          }
+                      }
+                  }, 0 );
+        tree.add( {
+                      id: 'DEPO-3248 (P)',
+                      data: {
+                          display: {
+                              normal: 'DEPO-3248',
+                              hover: 'Swimming for Beginners'
+                          },
+                          subject: {
+                              name: 'Swimming for Beginners',
+                              semester: '2015-20',
+                              code: 'DEPO-3248',
+                              professor: [ 'Leonardo Pulido Arjona' ]
+                          }
+                      }
+                  }, 0 );
+        tree.add( {
+                      id: 'LENG-1103',
+                      data: {
+                          display: {
+                              normal: 'LENG-1103',
+                              hover: 'English III'
+                          },
+                          subject: {
+                              name: 'English III',
+                              semester: '2015-20',
+                              code: 'LENG-1103',
+                              professor: [ 'Elena Paola Galeano Enciso' ]
+                          }
+                      }
+                  }, 0 );
+        tree.add( {
+                      id: 'LENG-1501',
+                      data: {
+                          display: {
+                              normal: 'LENG-1501',
+                              hover: 'Spanish'
+                          },
+                          subject: {
+                              name: 'Spanish',
+                              semester: '2015-20',
+                              code: 'LENG-1501',
+                              professor: [ 'Elena Paola Galeano Enciso' ]
+                          }
+                      }
+                  }, 0 );
+        tree.add( {
+                      id: 'MUSI-1100A',
+                      data: {
+                          display: {
+                              normal: 'MUSI-1100A',
+                              hover: 'Apreciation of the Music'
+                          },
+                          subject: {
+                              name: 'Apreciation of the Music',
+                              semester: '2015-20',
+                              code: 'MUSI-1100A',
+                              professor: [ 'Rondy Felipe Torres Lopez' ]
+                          }
+                      }
+                  }, 0 );
+        tree.add( {
+                      id: 'DERE-1300',
+                      data: {
+                          display: {
+                              normal: 'DERE-1300',
+                              hover: 'Constitution and Democracy'
+                          },
+                          subject: {
+                              name: 'Constitution and Democracy',
+                              semester: '2015-20',
+                              code: 'DERE-1300',
+                              professor: [ 'Nelson Remolina Angarita' ]
+                          }
+                      }
+                  }, 0 );
+        tree.add( {
+                      id: 'MATE-1201',
+                      data: {
+                          display: {
+                              normal: 'MATE-1201',
+                              hover: 'Precalculus'
+                          },
+                          subject: {
+                              name: 'Precalculus',
+                              semester: '2015-20',
+                              code: 'MATE-1201',
+                              professor: [ 'Zeljka Ljujic' ]
+                          }
+                      }
+                  }, 0 );
+        tree.add( {
+                      id: 'noreq_1',
+                      data: {
+                          hide: true
+                      }
+                  }, 0 );
+
+        tree.add( {
+                      id: 'ISIS-1209',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1209',
+                              hover: 'Alorithms and\nObject-Oriented\nPrograming II (Honors)'
+                          },
+                          subject: {
+                              name: 'Alorithms and Object-Oriented Programing II (Honors)',
+                              semester: '2016-10',
+                              code: 'ISIS-1209',
+                              professor: [ 'Alvaro Andres Gomez D\'alleman' ]
+                          }
+                      }
+                  }, 'ISIS-1204' );
+        tree.add( {
+                      id: 'ISIS-1104',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1104',
+                              hover: 'Structural Mathematics \nand Logic'
+                          },
+                          subject: {
+                              name: 'Structural Mathematics and Logic',
+                              semester: '2016-10',
+                              code: 'ISIS-1104',
+                              professor: [ 'Silvia Takahashi Rodriguez' ]
+                          }
+                      }
+                  }, 'noreq_1' );
+        tree.add( {
+                      id: 'MATE-1203',
+                      data: {
+                          display: {
+                              normal: 'MATE-1203',
+                              hover: 'Differential Calculus'
+                          },
+                          subject: {
+                              name: 'Differential Calculus',
+                              semester: '2016-10',
+                              code: 'MATE-1203',
+                              professor: [ 'David Ricardo Riveros Pacheco' ]
+                          }
+                      }
+                  }, 'MATE-1201' );
+
+        tree.add( {
+                      id: 'FISI-1018',
+                      data: {
+                          display: {
+                              normal: 'FISI-1018',
+                              hover: 'Physics I'
+                          },
+                          subject: {
+                              name: 'Physics I',
+                              semester: '2016-10',
+                              code: 'FISI-1018',
+                              professor: [ 'Mikel Fernando Hurtado Morales' ]
+                          }
+                      }
+                  }, 'noreq_1' );
+        tree.add( {
+                      id: 'ARTE-1105',
+                      data: {
+                          display: {
+                              normal: 'ARTE-1105',
+                              hover: 'Basic Photography I'
+                          },
+                          subject: {
+                              name: 'Basic Photography I',
+                              semester: '2016-10',
+                              code: 'ARTE-1105',
+                              professor: [ 'Javier Mauricio Vanegas Torres' ]
+                          }
+                      }
+                  }, 'noreq_1' );
+        tree.add( {
+                      id: 'LENG-1301',
+                      data: {
+                          display: {
+                              normal: 'LENG-1301',
+                              hover: 'German I'
+                          },
+                          subject: {
+                              name: 'German I',
+                              semester: '2016-10',
+                              code: 'LENG-1301',
+                              professor: [ 'Claudia Rocio Vargas Prada' ]
+                          }
+                      }
+                  }, 'noreq_1' );
+        tree.add( {
+                      id: 'LENG-1104',
+                      data: {
+                          display: {
+                              normal: 'LENG-1104',
+                              hover: 'English IV'
+                          },
+                          subject: {
+                              name: 'English IV',
+                              semester: '2016-10',
+                              code: 'LENG-1104',
+                              professor: [ 'Jovana Zivkovic' ]
+                          }
+                      }
+                  }, 'LENG-1103' );
+        tree.add( {
+                      id: 'DEPO-3248 (I)',
+                      data: {
+                          display: {
+                              normal: 'DEPO-3248',
+                              hover: 'Intermediate Swimming'
+                          },
+                          subject: {
+                              name: 'Intermediate Swimming',
+                              semester: '2016-10',
+                              code: 'DEPO-3248',
+                              professor: [ 'Leonardo Pulido Arjona' ]
+                          }
+                      }
+                  }, 'DEPO-3248 (P)' );
+        tree.add( {
+                      id: 'ISIS-2804_1',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2804',
+                              hover: 'Programming Marathons'
+                          },
+                          subject: {
+                              name: 'Programming Marathons',
+                              semester: '2016-10',
+                              code: 'ISIS-2804',
+                              professor: [ 'Mario Eduardo Sanchez Puccini' ]
+                          }
+                      }
+                  }, 'noreq_1' );
+        tree.add( {
+                      id: 'noreq_2',
+                      data: {
+                          hide: true
+                      }
+                  }, 'noreq_1' );
+
+        tree.add( {
+                      id: 'ISIS-1206',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1206',
+                              hover: 'Data Structures'
+                          },
+                          subject: {
+                              name: 'Data Structures',
+                              semester: '2016-20',
+                              code: 'ISIS-1206',
+                              professor: [ 'Dario Ernesto Correal Torres' ]
+                          }
+                      }
+                  }, 'ISIS-1209' );
+        tree.add( {
+                      id: 'ISIS-1304',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1304',
+                              hover: 'Fundamentals of\nTechnological Infrastructure'
+                          },
+                          subject: {
+                              name: 'Fundamentals of Technological Infrastructure',
+                              semester: '2016-20',
+                              code: 'ISIS-1304',
+                              professor: [ 'Jesse Padilla Agudelo' ]
+                          }
+                      }
+                  }, 'ISIS-1209' );
+        tree.add( {
+                      id: 'ISIS-1106',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1106',
+                              hover: 'Languages and Machines'
+                          },
+                          subject: {
+                              name: 'Languages and Machines',
+                              semester: '2016-20',
+                              code: 'ISIS-1106',
+                              professor: [ 'Nicolas Cardozo Alvarez' ]
+                          }
+                      }
+                  }, 'ISIS-1104' );
+        tree.add( {
+                      id: 'LENG-1302',
+                      data: {
+                          display: {
+                              normal: 'LENG-1302',
+                              hover: 'German II'
+                          },
+                          subject: {
+                              name: 'German II',
+                              semester: '2016-20',
+                              code: 'LENG-1302',
+                              professor: [ 'Natalia Rincon Barrero' ]
+                          }
+                      }
+                  }, 'LENG-1301' );
+        tree.add( {
+                      id: 'noreq_3',
+                      data: {
+                          hide: true
+                      }
+                  }, 'noreq_2' );
+
+        tree.add( {
+                      id: 'ISIS-2603',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2603',
+                              hover: 'Team Software Development'
+                          },
+                          subject: {
+                              name: 'Team Software Development',
+                              semester: '2017-10',
+                              code: 'ISIS-2603',
+                              professor: [ 'Rubby Casallas Gutierrez' ]
+                          }
+                      }
+                  }, 'noreq_3' );
+        tree.add( {
+                      id: 'ISIS-2304',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2304',
+                              hover: 'Transactional Systems'
+                          },
+                          subject: {
+                              name: 'Transactional Systems',
+                              semester: '2017-10',
+                              code: 'ISIS-2304',
+                              professor: [ 'Claudia Lucia Jimenez Guarin' ]
+                          }
+                      }
+                  }, 'noreq_3' );
+        tree.add( {
+                      id: 'ISIS-1404',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1404',
+                              hover: 'IT in Organizations'
+                          },
+                          subject: {
+                              name: 'IT in Organizations',
+                              semester: '2017-10',
+                              code: 'ISIS-1404',
+                              professor: [ 'Oscar Javier Avila Cifuentes' ]
+                          }
+                      }
+                  }, 'noreq_3' );
+        tree.add( {
+                      id: 'IELE-2042B',
+                      data: {
+                          display: {
+                              normal: 'IELE-2042B',
+                              hover: 'Ironman Technology'
+                          },
+                          subject: {
+                              name: 'Ironman Technology',
+                              semester: '2017-10',
+                              code: 'IELE-2042B',
+                              professor: [ 'Johann Faccelo Osma Cruz' ]
+                          }
+                      }
+                  }, 'noreq_3' );
+        tree.add( {
+                      id: 'HIST-2332A',
+                      data: {
+                          display: {
+                              normal: 'HIST-2332A',
+                              hover: 'History of Things'
+                          },
+                          subject: {
+                              name: 'History of Things',
+                              semester: '2017-10',
+                              code: 'HIST-2332A',
+                              professor: [ 'Ana Maria Otero Cleves' ]
+                          }
+                      }
+                  }, 'noreq_3' );
+        tree.add( {
+                      id: 'LENG-1105',
+                      data: {
+                          display: {
+                              normal: 'LENG-1105',
+                              hover: 'English V'
+                          },
+                          subject: {
+                              name: 'English V',
+                              semester: '2017-10',
+                              code: 'LENG-1105',
+                              professor: [ 'Valeriya Lytvychenko' ]
+                          }
+                      }
+                  }, 'LENG-1104' );
+        tree.add( {
+                      id: 'ISIS-2804_2',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2804',
+                              hover: 'Programming Marathons'
+                          },
+                          subject: {
+                              name: 'Programming Marathons',
+                              semester: '2017-10',
+                              code: 'ISIS-2804',
+                              professor: [ 'Nicolas Cardozo Alvarez' ]
+                          }
+                      }
+                  }, 'ISIS-2804_1' );
+
+        tree.add( {
+                      id: 'MATE-1105',
+                      data: {
+                          display: {
+                              normal: 'MATE-1105',
+                              hover: 'Lineal Algebra I'
+                          },
+                          subject: {
+                              name: 'Lineal Algebra I',
+                              semester: '2017-19',
+                              code: 'MATE-1105',
+                              professor: [ 'Alex Rolando Bueno' ]
+                          }
+                      }
+                  }, 'MATE-1203' );
+        tree.add( {
+                      id: 'MATE-1214',
+                      data: {
+                          display: {
+                              normal: 'MATE-1214',
+                              hover: 'Integral Calculus and\nDifferential Equations'
+                          },
+                          subject: {
+                              name: 'Integral Calculus and Differential Equations',
+                              semester: '2017-19',
+                              code: 'MATE-1214',
+                              professor: [ 'David Ricardo Riveros Pacheco' ]
+                          }
+                      }
+                  }, 'MATE-1203' );
+        tree.add( {
+                      id: 'ISIS-2503',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2503',
+                              hover: 'Architecture and Design Software'
+                          },
+                          subject: {
+                              name: 'Architecture and Design Software',
+                              semester: '2017-20',
+                              code: 'ISIS-2503',
+                              professor: [ 'Kelly Johany Garces Pernett' ]
+                          }
+                      }
+                  }, 'ISIS-2603' );
+        tree.add( {
+                      id: 'ISIS-2403',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2403',
+                              hover: 'Business Architecture'
+                          },
+                          subject: {
+                              name: 'Business Architecture',
+                              semester: '2017-20',
+                              code: 'ISIS-2403',
+                              professor: [ 'Jorge Alberto Villalobos Salcedo' ]
+                          }
+                      }
+                  }, 'ISIS-1404' );
+        tree.add( {
+                      id: 'ISIS-2007',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2007',
+                              hover: 'Product design and\ninnovation in IT'
+                          },
+                          subject: {
+                              name: 'Product design and innovation in IT',
+                              semester: '2017-20',
+                              code: 'ISIS-2007',
+                              professor: [ 'Jose Tiberio Hernandez Peñaloza', 'Maria Fernanda Zuñiga Zabala' ]
+                          },
+                      }
+                  }, 'ISIS-1101' );
+        tree.add( {
+                      id: 'ISIS-2804_3',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2804',
+                              hover: 'Programming Marathons'
+                          },
+                          subject: {
+                              name: 'Programming Marathons',
+                              semester: '2017-20',
+                              code: 'ISIS-2804',
+                              professor: [ 'Nicolas Cardozo Alvarez' ]
+                          }
+                      }
+                  }, 'ISIS-2804_2' );
+
+        tree.add( {
+                      id: 'ISIS-2203',
+                      data: {
+                          display: {
+                              normal: 'ISIS-2203',
+                              hover: 'Computational Infrastructure'
+                          },
+                          subject: {
+                              name: 'Computational Infrastructure',
+                              semester: '2018-10',
+                              code: 'ISIS-2203',
+                              professor: [ 'Harold Enrique Castro Barrera', 'Sandra Julieta Rueda Rodriguez' ]
+                          }
+                      }
+                  }, 'ISIS-1304' );
+        tree.add( {
+                      id: 'MATE-1207',
+                      data: {
+                          display: {
+                              normal: 'MATE-1207',
+                              hover: 'Vectorial Calculus'
+                          },
+                          subject: {
+                              name: 'Vectorial Calculus',
+                              semester: '2018-10',
+                              code: 'MATE-1207',
+                              professor: [ 'Sergio Miguel Adarve Delgado' ]
+                          }
+                      }
+                  }, 'MATE-1214' );
+        tree.add( {
+                      id: 'FISI-1028',
+                      data: {
+                          display: {
+                              normal: 'FISI-1028',
+                              hover: 'Physics II'
+                          },
+                          subject: {
+                              name: 'Physics II',
+                              semester: '2018-10',
+                              code: 'FISI-1028',
+                              professor: [ 'Luis Quiroga Puello' ]
+                          }
+                      }
+                  }, 'FISI-1018' );
+        tree.add( {
+                      id: 'ISIS-1105',
+                      data: {
+                          display: {
+                              normal: 'ISIS-1105',
+                              hover: 'Design and Analysis of Algorithms'
+                          },
+                          subject: {
+                              name: 'Design and Analysis of Algorithms',
+                              semester: '2018-10',
+                              code: 'ISIS-1105',
+                              professor: [ 'Rodrigo Cardoso Rodriguez' ]
+                          }
+                      }
+                  }, 'ISIS-1106' );
+        tree.add( {
+                      id: 'IIND-2106',
+                      data: {
+                          display: {
+                              normal: 'IIND-2106',
+                              hover: 'Probability and Statistics I'
+                          },
+                          subject: {
+                              name: 'Probability and Statistics I',
+                              semester: '2018-10',
+                              code: 'IIND-2106',
+                              professor: [ 'Astrid Johanna Bernal Rueda' ]
+                          }
+                      }
+                  }, 'noreq_3' );
+        tree.add( {
+                      id: 'MBIO-1100',
+                      data: {
+                          display: {
+                              normal: 'MBIO-1100',
+                              hover: 'Cell Biology'
+                          },
+                          subject: {
+                              name: 'Cell Biology',
+                              semester: '2018-10',
+                              code: 'MBIO-1100',
+                              professor: [ 'Martha Josefina Vives Florez' ]
+                          }
+                      }
+                  }, 'noreq_3' );
 
         radial_config.container_id = 'radial';
-        radial_config.tree = ntree;
+        radial_config.tree = tree;
         radial_config.clickListener = function ( elem ) {
             console.log( elem );
         };
+        radial_config.ringStart = 1;
         radial_attrs.inc = 80;
         radial_attrs.size = 30;
-        radial_attrs.padding = 40;
-        radial_attrs.style.node.anim.scale = 2.5;
+        radial_attrs.padding = 10;
+        radial_attrs.style.node.anim.scale = 3;
+        radial_attrs.style.node.anim.textScale = .3;
     </script>
 </body>
 </html>

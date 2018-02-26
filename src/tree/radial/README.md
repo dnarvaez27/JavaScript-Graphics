@@ -2,6 +2,9 @@
 
 This library makes a radial representation of a tree data structure.
 
+> Yet to do:
+> * Automate selecting ring if there are too many nodes in that ring
+
 ### Before you Start
 In order to make use of this library, you must include [tree.js](https://github.com/dnarvaez27/JavaScript-Graphics/blob/master/src/datastructures/tree/tree.js)
 and [svg.js*](https://github.com/dnarvaez27/JavaScript-Graphics/blob/master/src/tree/radial/svg.min.js)
@@ -12,6 +15,7 @@ and [svg.js*](https://github.com/dnarvaez27/JavaScript-Graphics/blob/master/src/
     * ```container_id```: The ```id``` of the div which will contain the SVG radial tree
     * ```tree```: The Tree data structure configured with the information required. See more information below
     * ```clickListener```: An event handler when a node of the radial tree is clicked. The parameter associated to the handler is the data defined in the Tree node
+    * ```loadOnReady```: Sets if the SVG will start render on ```document.ready```. To call the render manually, call the ```radial_restart()``` method. **This can be modified in the source code of the library**
 3. Personalize the radial tree through the ```radial_attrs``` JS object with the following options:  
     * ```inc```: The increment in pixels of the different levels of the radial tree. By default, this attribute will be calculated to fit the container **height**
     * ```size```: The size of each node in the radial tree. By default it is configured to 25px
