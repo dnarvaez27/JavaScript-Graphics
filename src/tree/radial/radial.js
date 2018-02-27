@@ -38,7 +38,7 @@ let radial_config = {
     container_id: undefined,
     tree: undefined,
     clickListener: undefined,
-    loadOnReady: true,
+    loadOnReady: false,
     ringStart: 0
 };
 let points = [];
@@ -90,7 +90,6 @@ let utils = {
         }
     }
 };
-
 if ( radial_config.loadOnReady ) {
     SVG.on( document, 'DOMContentLoaded', function () {
         radial_restart();
@@ -98,10 +97,10 @@ if ( radial_config.loadOnReady ) {
 }
 
 function radial_restart() {
-    let draw = SVG( radial_config.container_id ).size( '100%', '100%' );
-    draw.style( { padding: (10 + radial_attrs.size) + 'px' } );
+    let svg = SVG( radial_config.container_id ).size( '100%', '100%' );
+    svg.style( { padding: (10 + radial_attrs.size) + 'px' } );
 
-    let style = window.getComputedStyle( document.getElementById( draw.node.id ), null );
+    let style = window.getComputedStyle( document.getElementById( svg.node.id ), null );
     let height = utils.extractNumber( style.height );
     let width = utils.extractNumber( style.width );
     let center = { x: width / 2, y: height / 2 };
@@ -112,10 +111,10 @@ function radial_restart() {
         this.rad = rad;
         this.nodo = nodo;
         this.draw = function () {
-            let grupo = draw.group();
+            let grupo = svg.group();
             grupo.style( 'cursor', 'pointer' );
 
-            let circle = draw.circle( this.rad * 2 );
+            let circle = svg.circle( this.rad * 2 );
             circle.center( this.x, this.y );
             circle.attr( { fill: ((nodo.element.style && nodo.element.style.bg) || radial_attrs.style.node.bg) } );
             grupo.add( circle );
@@ -123,7 +122,7 @@ function radial_restart() {
             let text, textContent = undefined;
             if ( this.nodo.element.display && (this.nodo.element.display.normal || this.nodo.element.display.normal_svg) ) {
                 if ( this.nodo.element.display.normal ) {
-                    text = draw.text( this.nodo.element.display.normal.toString() );
+                    text = svg.text( this.nodo.element.display.normal.toString() );
                     text.style( { fill: ((nodo.element.style && nodo.element.style.fg) || radial_attrs.style.node.fg) } );
                     text.font( {
                                    family: 'Helvetica',
@@ -131,7 +130,7 @@ function radial_restart() {
                                } );
                     text.center( this.x, this.y );
 
-                    textContent = draw.text( this.nodo.element.display.hover.toString() );
+                    textContent = svg.text( this.nodo.element.display.hover.toString() );
                     textContent.style( { fill: ((nodo.element.style && nodo.element.style.fg) || radial_attrs.style.node.fg) } );
                     textContent.font( {
                                           family: 'Helvetica',
@@ -143,14 +142,14 @@ function radial_restart() {
                     grupo.add( textContent );
                 }
                 else {
-                    let g = draw.group();
+                    let g = svg.group();
                     g.svg( this.nodo.element.display.normal_svg );
                     g.center( this.x, this.y );
                     grupo.add( g );
                 }
             }
 
-            let emptyCircle = draw.circle( this.rad * 2 );
+            let emptyCircle = svg.circle( this.rad * 2 );
             emptyCircle.center( this.x, this.y );
             emptyCircle.attr( { fill: 'transparent' } );
             grupo.add( emptyCircle );
@@ -181,7 +180,7 @@ function radial_restart() {
 
     (function paintRings() {
         function paintRing( rad ) {
-            let ring = draw.circle( rad * 2 );
+            let ring = svg.circle( rad * 2 );
             ring.attr( radial_attrs.style.ring );
             ring.center( center.x, center.y );
         }
@@ -242,7 +241,7 @@ function radial_restart() {
                 destinoX -= deltaX0;
                 destinoY += deltaY0;
 
-                let line = draw.line( origenX, origenY, destinoX, destinoY );
+                let line = svg.line( origenX, origenY, destinoX, destinoY );
                 line.stroke( radial_attrs.style.line );
             } );
 
@@ -252,4 +251,6 @@ function radial_restart() {
         }
         return { angulo: actualAngulo, pos: comp };
     })( radial_config.tree.root, 0, radial_config.ringStart * radial_attrs.inc );
+
+    return svg;
 }
