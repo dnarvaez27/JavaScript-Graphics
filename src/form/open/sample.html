@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open</title>
+    <script src="../../external/jquery-3.3.1.min.js"></script>
+    <script src="open.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <link rel="stylesheet" href="../styles.css"/>
+    <script>
+        $( document ).ready( function () {
+            let openForm = new OpenForm( 'open-form' );
+            openForm.open_config.question = '¿Esto está bien?';
+            openForm.open_config.description = 'Cuál es la respuesta correcta? Ah?';
+            openForm.open_config.answers = [
+                'Si',
+                'No',
+                'Tal vez'
+            ];
+            openForm.start();
+
+            let openForm2 = new OpenForm( 'open-form-2' );
+            openForm2.open_config.question = '¿Esto está bien?';
+            openForm2.open_config.answers = [
+                'Si',
+                'No',
+                'Tal vez'
+            ];
+            openForm2.start();
+        } );
+    </script>
+</head>
+<body>
+    <div id="open-form"></div>
+    <div id="open-form-2"></div>
+</body>
+</html>

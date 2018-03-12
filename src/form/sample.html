@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <script src="../external/jquery-3.3.1.min.js"></script>
+    <script src="../external/svg.min.js"></script>
+    <script src="../external/svg.draggable.min.js"></script>
+    <script src="choice/choice.js"></script>
+    <script src="drag/drag.js"></script>
+    <script src="open/open.js"></script>
+
+    <link rel="stylesheet" href="choice/styles.css">
+    <link rel="stylesheet" href="open/styles.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        $( document ).ready( function () {
+            // Drag
+            let openForm = new OpenForm( 'open-form' );
+            openForm.open_config.question = 'Write what you think about (...)';
+            openForm.open_config.description = 'This is an open input, that accepts several correct answers';
+            openForm.open_config.answers = [
+                'Yes',
+                'No',
+                'Maybe'
+            ];
+            openForm.start();
+
+            // Choice
+            let choiceForm = new ChoiceForm( 'choice-form' );
+            choiceForm.choice_config.question = 'Choose one of the following that (...)';
+            choiceForm.choice_config.description = 'Only one answer is correct, you must select one of them';
+            choiceForm.choice_config.answer = 'A';
+
+            choiceForm.start();
+            new choiceForm.Answer( 'A', 'Answer A' );
+            new choiceForm.Answer( 'B', 'Answer B' );
+            new choiceForm.Answer( 'C', 'Answer C' );
+            new choiceForm.Answer( 'D', 'Answer D' );
+
+            // Drag
+            let dragForm = new DragForm( 'drag-form' );
+            dragForm.drag_config.question = 'Sort the following sentences in order to form a (...)';
+            dragForm.drag_config.description = 'Drag and Drop the words in the box';
+
+            let resp = new dragForm.Response( [
+                                                  { value: 'This' },
+                                                  { value: 'Is' },
+                                                  { value: 'A' },
+                                                  { value: 'Long' },
+                                                  { value: 'Sentence' },
+                                                  { value: 'You' },
+                                                  { value: 'Must' },
+                                                  { value: 'Sort' }
+                                              ] );
+            resp.draw();
+        } );
+    </script>
+</head>
+<body>
+    <div id="open-form" class="dn-form"></div>
+    <div id="choice-form" class="dn-form"></div>
+    <div id="drag-form" class="dn-form"></div>
+</body>
+</html>

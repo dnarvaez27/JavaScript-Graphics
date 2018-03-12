@@ -111,7 +111,7 @@ function radial_restart() {
         this.rad = rad;
         this.nodo = nodo;
         this.draw = function () {
-            let grupo = svg.group();
+            let grupo = svg.drag();
             grupo.style( 'cursor', 'pointer' );
 
             let circle = svg.circle( this.rad * 2 );
@@ -142,7 +142,7 @@ function radial_restart() {
                     grupo.add( textContent );
                 }
                 else {
-                    let g = svg.group();
+                    let g = svg.drag();
                     g.svg( this.nodo.element.display.normal_svg );
                     g.center( this.x, this.y );
                     grupo.add( g );

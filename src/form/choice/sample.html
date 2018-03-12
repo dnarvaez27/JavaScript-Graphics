@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choice</title>
+    <script src="../../external/jquery-3.3.1.min.js"></script>
+    <script src="choice.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="../styles.css"/>
+    <script>
+        $( document ).ready( function () {
+            let choiceForm = new ChoiceForm( 'choice-form' );
+            choiceForm.choice_config.question = 'Pregunta: ¿Esto es una pregunta?';
+            choiceForm.choice_config.description = 'Puedes responder a la pregunta';
+            choiceForm.choice_config.answer = 'A';
+
+            choiceForm.start();
+            new choiceForm.Answer( 'A', 'Respuesta A' );
+            new choiceForm.Answer( 'B', 'Respuesta B' );
+            new choiceForm.Answer( 'C', 'Respuesta C' );
+            new choiceForm.Answer( 'D', 'Respuesta D' );
+
+            let choiceForm2 = new ChoiceForm( 'choice-form-2' );
+            choiceForm2.choice_config.question = 'Pregunta: ¿Esto es una pregunta?';
+            choiceForm2.choice_config.answer = 'A';
+
+            choiceForm2.start();
+            new choiceForm2.Answer( 'A', 'Respuesta A' );
+            new choiceForm2.Answer( 'B', 'Respuesta B' );
+            new choiceForm2.Answer( 'C', 'Respuesta C' );
+            new choiceForm2.Answer( 'D', 'Respuesta D' );
+
+        } );
+    </script>
+</head>
+<body>
+    <div id="choice-form"></div>
+    <div id="choice-form-2"></div>
+</body>
+</html>

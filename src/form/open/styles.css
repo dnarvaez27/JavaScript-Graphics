@@ -1,0 +1,44 @@
+.answr-input {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    width: 95%;
+    font-family: var(--font);
+}
+
+.answr-input:focus {
+    outline: 0;
+}
+
+.sbmt-btn {
+    padding: 10px;
+    font-family: var(--font);
+    background-color: olive;
+    border: 1px solid currentColor;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.sbmt-btn:hover {
+    background-color: #5a5a00;
+    border: 1px solid currentColor;
+}
+
+.sbmt-btn:focus {
+    outline: 0;
+}
+
+.answr-ok {
+    color: olive;
+}
+
+.answr-not-ok {
+    color: brown;
+}

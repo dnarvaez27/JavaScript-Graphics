@@ -7,7 +7,7 @@ This library makes a radial representation of a tree data structure.
 
 ### Before you Start
 In order to make use of this library, you must include [tree.js](https://github.com/dnarvaez27/JavaScript-Graphics/blob/master/src/datastructures/tree/tree.js)
-and [svg.js*](https://github.com/dnarvaez27/JavaScript-Graphics/blob/master/src/tree/radial/svg.min.js)
+and [svg.js*](https://github.com/dnarvaez27/JavaScript-Graphics/blob/master/src/external/svg.min.js)
 
 ## Usage
 1. You must have a ```div``` where the SVG will be contained

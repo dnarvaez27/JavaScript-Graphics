@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag</title>
+    <script src="../../external/svg.min.js"></script>
+    <script src="../../external/svg.draggable.min.js"></script>
+    <script src="drag.js"></script>
+    <link rel="stylesheet" href="../styles.css"/>
+    <script>
+        SVG.on( document, 'DOMContentLoaded', function () {
+            let dragForm = new DragForm( 'drag-container' );
+            dragForm.drag_config.question = 'Organice las siguientes palabras';
+            dragForm.drag_config.description = 'Organice las siguientes palabras';
+
+            let resp = new dragForm.Response( [
+                                                  { value: 'Hola' },
+                                                  { value: 'Me' },
+                                                  { value: 'Llamo' },
+                                                  { value: 'David' },
+                                                  { value: 'Hola' },
+                                                  { value: 'Me' },
+                                                  { value: 'Llamo' },
+                                                  { value: 'David' }
+                                              ] );
+            resp.draw();
+
+            let dragForm2 = new DragForm( 'drag-container_2' );
+            dragForm2.drag_config.question = 'Organice las siguientes palabras 2';
+            dragForm2.drag_config.description = 'Organice las siguientes palabras 2';
+            let resp_2 = new dragForm2.Response( [
+                                                     { value: 'Hola' },
+                                                     { value: 'Me' },
+                                                     { value: 'Llamo' },
+                                                     { value: 'David' },
+                                                     { value: 'Hola' },
+                                                     { value: 'Me' },
+                                                     { value: 'Llamo' },
+                                                     { value: 'David' }
+                                                 ] );
+            resp_2.draw();
+        } );
+    </script>
+</head>
+<body>
+    <div id="drag-container" style="height: 150px"></div>
+    <div id="drag-container_2" style="height: 150px"></div>
+</body>
+</html>
