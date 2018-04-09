@@ -1,0 +1,76 @@
+:root {
+    --font: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto,
+    "Helvetica Neue", Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+#dn-dropdown-container {
+    background-color: white;
+    position: absolute;
+    max-height: 300px;
+    border: 1px solid lightgray;
+    padding: 3px 0;
+    min-width: 150px;
+    font-family: var(--font);
+    box-shadow: 0 1px 10px -5px;
+}
+
+.dn-dropdown-scrollable {
+    overflow-y: scroll;
+    padding: 1px 0;
+}
+
+.dn-dropdown-item {
+    cursor: pointer;
+    padding: 10px;
+    border: 0 solid lightgray;
+    border-bottom-width: 1px;
+}
+
+.dn-dropdown-item:last-child {
+    border-bottom: 0 solid lightgrey;
+}
+
+.dn-dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.dn-dropdown-subcontainer.hide {
+    display: none;
+}
+
+.dn-dropdown-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+    text-align: left;
+}
+
+.dn-dropdown-button:focus {
+    outline: none;
+}
+
+.dn-dropdown-parent {
+    width: 100%;
+    box-shadow: 0 4px 10px -6px black;
+    top: -3px;
+    position: relative;
+    padding: 12px 10px;
+}
+
+.dn-dropdown-parent > span {
+    display: inline-block;
+    padding: 0 10px;
+    font-family: var(--font);
+    float: right;
+}
+
+.dn-dropdown-frontarrow {
+    float: right;
+    padding: 0 10px;
+}

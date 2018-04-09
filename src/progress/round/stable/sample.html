@@ -7,10 +7,12 @@
     <script src="round-progress.js"></script>
 
     <script>
-        round_progress.data.round_progress_listener = function ( ev ) {
+        let round = new Progress.Round();
+
+        round.round_progress.data.round_progress_listener = function ( ev ) {
             console.log( ev );
         };
-        round_progress.init( '#hola' );
+        round.round_progress.init( '#hola' );
     </script>
 
 </head>

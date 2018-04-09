@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="dropdown.css"/>
+    <script src="dropdown.js"></script>
+    <style>
+        .button {
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #212121;
+            cursor: pointer;
+            outline: none !important;
+        }
+
+        .button:hover {
+            background-color: #212121;
+            color: white;
+        }
+
+        #dropdown-2 + #dn-dropdown-container > .dn-dropdown-parent {
+            background-color: #FCB13F;
+        }
+
+        #dropdown-3 + #dn-dropdown-container > .dn-dropdown-parent {
+            background-color: teal;
+            color: white;
+        }
+
+        body > div {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button class="button" id="dropdown-1">Dropdown</button>
+    </div>
+    <div>
+        <button class="button" id="dropdown-2">Dropdown</button>
+    </div>
+    <div>
+        <button class="button" id="dropdown-3">Dropdown</button>
+    </div>
+    <script>
+        (function () {
+            let dd = new DropDown( 'dropdown-1', ( e ) => console.log( e ) );
+            let o1 = dd.add( { value: 'Objeto 1' } );
+            let o11 = o1.add( { value: 'Objeto 1.1' } );
+            let o12 = o1.add( { value: 'Objeto 1.2' } );
+            let o2 = dd.add( { value: 'Objeto 2' } );
+            let o21 = o2.add( { value: 'Objeto 2.1' } );
+        })();
+
+        (function () {
+            let dd2 = new DropDown( 'dropdown-2', ( e ) => console.log( e ) );
+            dd2.style.backArrow = '<';
+            dd2.style.frontArrow = '>';
+
+            let o1 = dd2.add( { value: 'Opción 1' } );
+            let o2 = dd2.add( { value: 'Opción 2' } );
+            let o3 = dd2.add( { value: 'Opción 3' } );
+            let o4 = dd2.add( { value: 'Opción 4' } );
+
+            o1.add( { value: 'Opción 1.1' } );
+            let o12 = o1.add( { value: 'Opción 1.2' } );
+            o1.add( { value: 'Opción 1.3' } );
+            o1.add( { value: 'Opción 1.4' } );
+
+            o2.add( { value: 'Opción 2.1' } );
+            o2.add( { value: 'Opción 2.2' } );
+            o2.add( { value: 'Opción 2.3' } );
+            o2.add( { value: 'Opción 2.4' } );
+
+            o3.add( { value: 'Opción 3.1' } );
+            o3.add( { value: 'Opción 3.2' } );
+            o3.add( { value: 'Opción 3.3' } );
+            o3.add( { value: 'Opción 3.4' } );
+
+            o4.add( { value: 'Opción 4.1' } );
+            o4.add( { value: 'Opción 4.2' } );
+            o4.add( { value: 'Opción 4.3' } );
+            o4.add( { value: 'Opción 4.4' } );
+
+            o12.add( { value: 'Opción 1.2.1' } );
+            o12.add( { value: 'Opción 1.2.2' } );
+        })();
+
+        (function () {
+            let dd2 = new DropDown( 'dropdown-3', ( e ) => console.log( e ) );
+            dd2.style.backArrow = '<';
+            dd2.style.frontArrow = '>';
+
+            let o1 = dd2.add( { value: 'Opción 1' } );
+            let o2 = dd2.add( { value: 'Opción 2' } );
+            let o3 = dd2.add( { value: 'Opción 3' } );
+            let o4 = dd2.add( { value: 'Opción 4' } );
+
+            o1.add( { value: 'Opción 1.1' } );
+            let o12 = o1.add( { value: 'Opción 1.2' } );
+            o1.add( { value: 'Opción 1.3' } );
+            o1.add( { value: 'Opción 1.4' } );
+
+            o2.add( { value: 'Opción 2.1' } );
+            o2.add( { value: 'Opción 2.2' } );
+            o2.add( { value: 'Opción 2.3' } );
+            o2.add( { value: 'Opción 2.4' } );
+
+            o3.add( { value: 'Opción 3.1' } );
+            o3.add( { value: 'Opción 3.2' } );
+            o3.add( { value: 'Opción 3.3' } );
+            o3.add( { value: 'Opción 3.4' } );
+
+            o4.add( { value: 'Opción 4.1' } );
+            o4.add( { value: 'Opción 4.2' } );
+            o4.add( { value: 'Opción 4.3' } );
+            o4.add( { value: 'Opción 4.4' } );
+
+            o12.add( { value: 'Opción 1.2.1' } );
+            o12.add( { value: 'Opción 1.2.2' } );
+        })();
+    </script>
+</body>
+</html>

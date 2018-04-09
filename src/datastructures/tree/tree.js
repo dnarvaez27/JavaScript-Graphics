@@ -5,12 +5,16 @@ function Tree() {
     this.root = undefined;
     this.add = function ( element, idParent ) {
         if ( this.root === undefined ) {
-            this.root = new Node( element );
+            this.root = new Tree.Node( element );
+            this.size++;
+            return this.root;
         }
         else {
-            if ( this.root.addChild( element, idParent ) ) {
+            let child = this.root.addChild( element, idParent );
+            if ( child ) {
                 this.size++;
             }
+            return child;
         }
     };
     this.printTree = function () {
@@ -29,20 +33,29 @@ function Tree() {
     };
 }
 
-function Node( element ) {
+Tree.Node = function ( element ) {
     this.element = element.data;
     this.id = element.id;
     this.childs = [];
 
+    this.add = function ( element ) {
+        let node = new Tree.Node( element );
+        this.childs.push( node );
+        return node;
+    };
     this.addChild = function ( element, idParent ) {
         if ( this.id === idParent ) {
-            this.childs.push( new Node( element ) );
-            return true;
+            let node = new Tree.Node( element );
+            this.childs.push( node );
+            return node;
         }
         else {
-            return this.childs.some( function ( child ) {
-                return child.addChild( element, idParent );
-            } );
+            for ( let i = 0; i < this.childs.length; i++ ) {
+                let addChild = this.childs[ i ].addChild( element, idParent );
+                if ( addChild ) {
+                    return addChild;
+                }
+            }
         }
     };
     this.print = function ( pre ) {
@@ -72,4 +85,4 @@ function Node( element ) {
         }
         return cant;
     };
-}
+};

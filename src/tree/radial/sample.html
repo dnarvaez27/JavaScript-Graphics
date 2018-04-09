@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -650,17 +651,17 @@
                       }
                   }, 'noreq_3' );
 
-        radial_config.container_id = 'radial';
-        radial_config.tree = tree;
-        radial_config.clickListener = function ( elem ) {
+        radial = new Radial( radial, true );
+        radial.radial_config.tree = tree;
+        radial.radial_config.clickListener = function ( elem ) {
             console.log( elem );
         };
-        radial_config.ringStart = 1;
-        radial_attrs.inc = 80;
-        radial_attrs.size = 30;
-        radial_attrs.padding = 10;
-        radial_attrs.style.node.anim.scale = 3;
-        radial_attrs.style.node.anim.textScale = .3;
+        radial.radial_config.ringStart = 1;
+        radial.radial_attrs.inc = 80;
+        radial.radial_attrs.size = 30;
+        radial.radial_attrs.padding = 10;
+        radial.radial_attrs.style.node.anim.scale = 3;
+        radial.radial_attrs.style.node.anim.textScale = .3;
     </script>
 </body>
 </html>

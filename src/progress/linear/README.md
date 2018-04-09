@@ -44,6 +44,7 @@ In both cases, the following attributes can be added:
 ```
 To render only a specific progress bar
 ```JavaScript
+    let linear = new Progress.Linear();
     linear_progress.init( '#parent-of-the-progress-bar' );
 ```
 
@@ -63,3 +64,4 @@ To render only a specific progress bar
 
 ---
 > Working on attirbute change callback to render automatically
+> Working on id unique progress bar render
