@@ -27,18 +27,6 @@ Note: Additional data can be added in the array
 * The following is the object responsible for the style attributes of the Chart. You can change the following properties: 
 ```
 *.attrs = {
-        padding: 30, // The padding of the Chart
-        axis_width: 1, // Width of the Axis line
-        line_width: 2, // Width of the lines of each Serie in the Chart
-        animatation_duration: 150, // Duration of the animation when drawing the Chart
-        point_diameter: 10, // Diameter of each point in the Chart
-        axis_color: '#212121', // Color of the Axis of the Chart
-        guides_color: '#DDDDDD', // Color of the Guides in the Chart
-        bg: '#FFFFFF', // Background Color of the Chart and Popups
-        fg: '#212121' // Foreground Color of the Chart and Popups
-    };
-    
-*.attrs = {
         chart: {
             line_width: 2, // Width of the line in the Chart
             point_diameter: 10, // Diameter of the points in the Chart
