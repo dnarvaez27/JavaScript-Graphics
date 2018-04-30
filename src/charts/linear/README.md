@@ -89,65 +89,65 @@ Note: Additional data can be added in the array
 
 ### Code Sample
 ```Javascript
-let linear = new Chart.Linear( 'linear-container' );
-        linear.config.rangeName = 'Y';
-        linear.config.domainName = 'X';
-        linear.attrs.chart.point_diameter = 15;
-        linear.attrs.legend.style.background = '#212121';
-        linear.attrs.legend.style.foreground = '#FFFFFF';
-        linear.axisX = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
-        linear.axisY = [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ];
-        linear.config.onClick = function ( data ) {
-            console.log( data.obj );
-        };
-        linear.data.push( {
-                              name: 'Blue Series',
-                              color: '#009696',
-                              values: [
-                                  [ 0, 90, 'Data 0 - Blue' ],
-                                  [ 1, 70, 'Data 1 - Blue' ],
-                                  [ 2, 50, 'Data 2 - Blue' ],
-                                  [ 3, 40, 'Data 3 - Blue' ],
-                                  [ 4, 80, 'Data 4 - Blue' ],
-                                  [ 5, 20, 'Data 5 - Blue' ],
-                                  [ 6, 10, 'Data 6 - Blue' ],
-                                  [ 7, 60, 'Data 7 - Blue' ],
-                              ]
-                          } );
-        linear.data.push( {
-                              name: 'Yellow Series',
-                              color: '#f4f442',
-                              values: [
-                                  [ 1, 20, 'Data 0 - Yellow' ],
-                                  [ 2, 40, 'Data 1 - Yellow' ],
-                                  [ 3, 20, 'Data 2 - Yellow' ],
-                                  [ 4, 55, 'Data 3 - Yellow' ],
-                                  [ 5, 10, 'Data 4 - Yellow' ],
-                                  [ 6, 5, 'Data 5 - Yellow' ],
-                                  [ 7, 20, 'Data 6 - Yellow' ],
-                                  [ 8, 15, 'Data 7 - Yellow' ],
-                                  [ 9, 80, 'Data 8 - Yellow' ],
-                                  [ 10, 90, 'Data 9 - Yellow' ],
-                                  [ 11, 100, 'Data 10 - Yellow' ]
-                              ]
-                          } );
-        linear.data.push( {
-                              name: 'Magenta Series',
-                              color: '#f42d88',
-                              values: [
-                                  [ 0, 110, 'Data 0 - Magenta' ],
-                                  [ 1, 45, 'Data 1 - Magenta' ],
-                                  [ 2, 45, 'Data 2 - Magenta' ],
-                                  [ 3, 5, 'Data 3 - Magenta' ],
-                                  [ 4, 15, 'Data 4 - Magenta' ],
-                                  [ 5, 10, 'Data 5 - Magenta' ],
-                                  [ 6, 0, 'Data 6 - Magenta' ],
-                                  [ 7, 10, 'Data 7 - Magenta' ],
-                                  [ 8, 10, 'Data 8 - Magenta' ],
-                                  [ 9, 20, 'Data 9 - Magenta' ],
-                                  [ 10, 15, 'Data 10 - Magenta' ],
-                              ]
-                          } );    
+ let linear = new Chart.Linear( 'linear-container' );
+ linear.config.rangeName = 'Y';
+ linear.config.domainName = 'X';
+ linear.attrs.chart.point_diameter = 15;
+ linear.attrs.legend.style.background = '#212121';
+ linear.attrs.legend.style.foreground = '#FFFFFF';
+ linear.axisX = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
+ linear.axisY = [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 ];
+ linear.config.onClick = function ( data ) {
+     console.log( data.obj );
+ };
+ linear.data.push( {
+                       name: 'Blue Series',
+                       color: '#009696',
+                       values: [
+                           [ 0, 90, 'Data 0 - Blue' ],
+                           [ 1, 70, 'Data 1 - Blue' ],
+                           [ 2, 50, 'Data 2 - Blue' ],
+                           [ 3, 40, 'Data 3 - Blue' ],
+                           [ 4, 80, 'Data 4 - Blue' ],
+                           [ 5, 20, 'Data 5 - Blue' ],
+                           [ 6, 10, 'Data 6 - Blue' ],
+                           [ 7, 60, 'Data 7 - Blue' ],
+                       ]
+                   } );
+ linear.data.push( {
+                       name: 'Yellow Series',
+                       color: '#f4f442',
+                       values: [
+                           [ 1, 20, 'Data 0 - Yellow' ],
+                           [ 2, 40, 'Data 1 - Yellow' ],
+                           [ 3, 20, 'Data 2 - Yellow' ],
+                           [ 4, 55, 'Data 3 - Yellow' ],
+                           [ 5, 10, 'Data 4 - Yellow' ],
+                           [ 6, 5, 'Data 5 - Yellow' ],
+                           [ 7, 20, 'Data 6 - Yellow' ],
+                           [ 8, 15, 'Data 7 - Yellow' ],
+                           [ 9, 80, 'Data 8 - Yellow' ],
+                           [ 10, 90, 'Data 9 - Yellow' ],
+                           [ 11, 100, 'Data 10 - Yellow' ]
+                       ]
+                   } );
+ linear.data.push( {
+                       name: 'Magenta Series',
+                       color: '#f42d88',
+                       values: [
+                           [ 0, 110, 'Data 0 - Magenta' ],
+                           [ 1, 45, 'Data 1 - Magenta' ],
+                           [ 2, 45, 'Data 2 - Magenta' ],
+                           [ 3, 5, 'Data 3 - Magenta' ],
+                           [ 4, 15, 'Data 4 - Magenta' ],
+                           [ 5, 10, 'Data 5 - Magenta' ],
+                           [ 6, 0, 'Data 6 - Magenta' ],
+                           [ 7, 10, 'Data 7 - Magenta' ],
+                           [ 8, 10, 'Data 8 - Magenta' ],
+                           [ 9, 20, 'Data 9 - Magenta' ],
+                           [ 10, 15, 'Data 10 - Magenta' ],
+                       ]
+                   } );    
 ```
 
 ### Result:
