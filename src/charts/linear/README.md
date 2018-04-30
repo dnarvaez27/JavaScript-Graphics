@@ -2,6 +2,9 @@
 This library provides an easy way of drawing a SVG Linear Chart  
 <small>More advanced features soon</small> 
 
+### Before you Start
+In order to make use of this library, you must include [svg.js*](https://github.com/dnarvaez27/JavaScript-Graphics/blob/master/src/external/svg.min.js)
+
 ### Usage
 The configuration, customization and usage of this library is made through the ```Chart.Linear``` Object  
 In order to see correctly the chart, you must import the [CSS](https://github.com/dnarvaez27/JavaScript-Graphics/tree/master/src/charts/linear/styles.css) to your webpage  
