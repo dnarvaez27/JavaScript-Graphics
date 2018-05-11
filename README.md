@@ -3,9 +3,15 @@
 Multiple JavaScript Graphic libraries   
 
 ## Index
+* Charts
+  * Linear
+* Forms
+  * Choice
+  * Drag
+  * Dropdown
+  * Open
 * Progress
   * Linear
   * Rounded
-* Timeline (Needs Fix)
 * Tree
   * Radial
