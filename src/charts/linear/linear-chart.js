@@ -90,8 +90,8 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
         svgContainer.style.height = mainContainer.style.height || 'auto';
         svgContainer.style.width = mainContainer.style.width || 'auto';
         mainContainer.appendChild( svgContainer );
-        mainContainer.style.height = 'auto';
-        mainContainer.style.width = 'auto';
+        // mainContainer.style.height = 'auto';
+        // mainContainer.style.width = 'auto';
         mainContainer.style.display = 'table';
 
         self.config.svg = SVG( 'svg-container-for-' + container_id ).size( '100%', '100%' );
@@ -115,7 +115,7 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
         }, Number.MAX_SAFE_INTEGER );
         const maxY = Math.max( self.attrs.axis.y_min, self.data.reduce( function ( total, serie ) {
             return Math.max( total, serie.values.reduce( function ( total, tupla ) {
-                return Math.max( total, transform( tupla[ 1 ], minY ) );
+                return Math.max( total, tupla[ 1 ] );
             }, 0 ) );
         }, 0 ) );
         const minX = self.data.reduce( function ( total, serie ) {
@@ -125,7 +125,7 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
         }, Number.MAX_SAFE_INTEGER );
         const maxX = Math.max( 0, self.data.reduce( function ( total, serie ) {
             return Math.max( total, serie.values.reduce( function ( total, tupla ) {
-                return Math.max( total, transform( tupla[ 0 ], minX ) );
+                return Math.max( total, tupla[ 0 ] );
             }, 0 ) );
         }, 0 ) );
         const tooltip_w = 50;
@@ -206,8 +206,8 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
         }
 
         function getCoordinates( x, y ) {
-            let actualY = dims.h - (transform( y, minY ) * (dims.h - heightLabel - self.attrs.chart.point_diameter * 2 - self.attrs.labels.gap) / maxY) - heightLabel - self.attrs.chart.point_diameter / 2 - self.attrs.labels.gap;
-            let actualX = (transform( x, minX ) * (dims.w - widthLabel - self.attrs.chart.point_diameter * 2 - self.attrs.labels.gap) / maxX) + widthLabel + self.attrs.chart.point_diameter / 2 + self.attrs.labels.gap;
+            let actualY = dims.h - ( y * (dims.h - heightLabel - self.attrs.chart.point_diameter * 2 - self.attrs.labels.gap) / maxY) - heightLabel - self.attrs.chart.point_diameter / 2 - self.attrs.labels.gap;
+            let actualX = (x * (dims.w - widthLabel - self.attrs.chart.point_diameter * 2 - self.attrs.labels.gap) / maxX) + widthLabel + self.attrs.chart.point_diameter / 2 + self.attrs.labels.gap;
             return { x: actualX, y: actualY };
         }
 
@@ -302,10 +302,6 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
             return function () {
                 tooltip.hide();
             };
-        }
-
-        function transform( d, min ) {
-            return Math.abs( d - min + (min === 0 ? 0 : 1) );
         }
 
         self.data.forEach( function ( serie ) {
