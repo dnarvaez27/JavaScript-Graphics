@@ -172,7 +172,7 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
             }
 
             self.axisX.forEach( function ( x ) {
-                if ( x <= maxX && x + 1 >= minX ) {
+                if ( x <= maxX && x + 1 >= minX || x === 0 ) {
                     let coords = getCoordinates( x, 0 );
                     let labelCoord = getCoordinates( x, minY );
 
@@ -187,7 +187,7 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
                 }
             } );
             self.axisY.forEach( function ( y ) {
-                if ( y <= maxY && y >= minY ) {
+                if ( y <= maxY && y >= minY || y === 0 ) {
                     let coords = getCoordinates( 0, y );
 
                     if ( coords.y <= dims.h - heightLabel ) {
