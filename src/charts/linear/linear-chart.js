@@ -108,11 +108,11 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
     };
 
     function draw_points() {
-        const minY = self.data.reduce( function ( total, serie ) {
+        const minY = Math.min( 0, self.data.reduce( function ( total, serie ) {
             return Math.min( total, serie.values.reduce( function ( total, tupla ) {
                 return Math.min( total, tupla[ 1 ] );
             }, Number.MAX_SAFE_INTEGER ) );
-        }, Number.MAX_SAFE_INTEGER );
+        }, Number.MAX_SAFE_INTEGER ) );
         const maxY = Math.max( self.attrs.axis.y_min, self.data.reduce( function ( total, serie ) {
             return Math.max( total, serie.values.reduce( function ( total, tupla ) {
                 return Math.max( total, transform( tupla[ 1 ], minY ) );
@@ -158,10 +158,12 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
         })();
 
         function drawGuides() {
-            function guides( x1, y1, x2, y2, ) {
-                let line = self.config.svg.line( x1, y1, x2, y2 );
-                line.stroke( { color: self.attrs.guides.color, width: self.attrs.guides.width } );
-                line.back();
+            function guides( x1, y1, x2, y2 ) {
+                if ( !(isNaN( x1 ) || isNaN( y1 ) || isNaN( x2 ) || isNaN( y2 )) ) {
+                    let line = self.config.svg.line( x1, y1, x2, y2 );
+                    line.stroke( { color: self.attrs.guides.color, width: self.attrs.guides.width } );
+                    line.back();
+                }
             }
 
             function labels( t ) {
@@ -187,7 +189,7 @@ Chart.Linear = function ( container_id, loadOnReady = true ) {
                 }
             } );
             self.axisY.forEach( function ( y ) {
-                if ( y <= maxY && y >= minY || y === 0 ) {
+                if ( minY <= y && y <= maxY ) {
                     let coords = getCoordinates( 0, y );
 
                     if ( coords.y <= dims.h - heightLabel ) {
