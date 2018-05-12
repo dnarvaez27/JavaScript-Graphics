@@ -51,6 +51,7 @@ Progress.Round = function () {
             self.progress = self.progress > 100 ? 100 : self.progress;
 
             listeners();
+            drawText();
             requestAnimationFrame( animate );
         };
 
@@ -61,30 +62,31 @@ Progress.Round = function () {
             if ( tempActualProgress >= self.progress ) {
                 cancelAnimationFrame( animFrameId );
             }
-            // actualProgress = Math.PI + ( ( tempActualProgress++ / 100 ) * ( Math.PI * 2) );
             actualProgress = starterAngle + ((tempActualProgress++ / 100) * (Math.PI * 2));
             draw();
         }
 
         function draw() {
-            drawBaground();
+            drawBackground();
 
             ctx.strokeStyle = self.accent;
             ctx.fillStyle = self.accent;
 
+            ctx.beginPath();
+            ctx.arc( self.x, self.y, self.radius, starterAngle, actualProgress );
+            ctx.stroke();
+            drawText();
+        }
+
+        function drawText() {
             let text = (tempActualProgress - 1) + '%';
             let fontSize = ctx.font.match( /[0-9]+/ )[ 0 ];
             let textWidth = ctx.measureText( text ).width;
-
-            ctx.beginPath();
-            // ctx.arc( self.x, self.y, self.radius, Math.PI, actualProgress );
-            ctx.arc( self.x, self.y, self.radius, starterAngle, actualProgress );
-            ctx.stroke();
             ctx.fillText( text, self.x - (textWidth / 2), self.y + (fontSize / 2) - 3 );
             ctx.closePath();
         }
 
-        function drawBaground() {
+        function drawBackground() {
             ctx.strokeStyle = self.background;
             ctx.beginPath();
             ctx.arc( self.x, self.y, self.radius, 0, Math.PI * 2 );
@@ -113,7 +115,7 @@ Progress.Round = function () {
     };
     let paint = function ( idContainer ) {
         let container = document.getElementById( idContainer );
-        if ( parseInt( container.getAttribute( 'value' ) ) ) {
+        if ( parseInt( container.getAttribute( 'value' ) ) >= 0 ) {
             const radio = parseInt( container.getAttribute( 'radio' ) );
             const canvas = container.querySelector( 'canvas' );
             const lineWidth = parseInt( container.getAttribute( 'stroke' ) ) || 5;
@@ -189,7 +191,6 @@ Progress.Round = function () {
                         self.round_progress.data.round_progress_ids.push( item.id );
                     } );
                 }
-
                 self.round_progress.data.append();
             } );
         }
