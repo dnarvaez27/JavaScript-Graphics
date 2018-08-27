@@ -1,0 +1,236 @@
+<div id="progress-container">
+    <button id="progress-close-btn" class="close-btn">&times;</button>
+    <div id="progress" class="two-cols">
+        <div id="progress-round">
+            <div id="round_progress_0"
+                 value="10"
+                 radio=60"
+                 stroke="10"
+                 data='{"hola": 123}'
+                 style="color: #D2D945"
+            ></div>
+            <div id="round_progress_1"
+                 value="50"
+                 radio=60"
+                 stroke="3"
+                 data='{"hola": 123}'
+                 style="color: #FF594F"
+            ></div>
+            <div id="round_progress_2"
+                 value="80"
+                 radio=60"
+                 stroke="3"
+                 data='{"hola": 456}'
+                 style="color: yellowgreen"
+            ></div>
+            <div id="round_progress_3"
+                 value="80"
+                 radio=60"
+                 stroke="10"
+                 data='{"hola": 456}'
+                 style="color: #C2024F"
+            ></div>
+
+            <div id="round_progress_4"
+                 value="10"
+                 radio=60"
+                 stroke="10"
+                 data='{"hola": 123}'
+                 style="color: #04BBBF"
+            ></div>
+            <div id="round_progress_5"
+                 value="50"
+                 radio=60"
+                 stroke="3"
+                 data='{"hola": 123}'
+                 style="color: #04BBBF"
+            ></div>
+            <div id="round_progress_6"
+                 value="80"
+                 radio=60"
+                 stroke="3"
+                 data='{"hola": 456}'
+                 style="color: #C2024F"
+            ></div>
+            <div id="round_progress_7"
+                 value="80"
+                 radio=60"
+                 stroke="10"
+                 data='{"hola": 456}'
+                 style="color: #f4d442"
+            ></div>
+        </div>
+        <div>
+            <h1 class="graph-title">Progress Gauge</h1>
+            <p class="content"></p>
+            <h3>Explain</h3>
+            <p class="explain"></p>
+        </div>
+    </div>
+    <div class="code-supercontainer">
+        <h2>Code</h2>
+        <div class="code-container">
+            <div>
+                <h2>Sample</h2>
+                <pre class="code" id="progress-code"></pre>
+                <pre class="code">
+&lt;div id=&quot;round_progress&quot;
+        value=&quot;50&quot;
+        radio=30&quot;
+        stroke=&quot;3&quot;
+        data='{&quot;greeting&quot;: &quot;Hello&quot;}'
+        style=&quot;color: gold&quot;
+&gt;&lt;/div&gt;
+                </pre>
+            </div>
+            <div>
+                <h2>Usage</h2>
+                <div class="usage" id="progress-usage">
+                    <ul>
+                        <li>To use the stable version, include a <code>div</code> in your HTML, and give it an
+                            <code>id</code> that starts with <code>round_progress</code>.
+                        </li>
+                        <li>One the document is ready, the library calls the function
+                            <code>round_progress.init(parent)</code>, with the parameter <code>parent</code> set to the
+                            <code>'body'</code> tag,
+                            this will look for id's that matches the word, as discribed in the previous requirement, in
+                            parent's childs recursively, thus rendering the rounded progress.<br>
+                            If you only want to render a specific or a set elements of "rounded progress", you can call
+                            the function by yourself and passing the parameter, as a <a
+                                    href="https://api.jquery.com/category/selectors/" rel="nofollow">jQuery selector</a>,
+                            to the <strong>parent</strong> of the progress bar
+                        </li>
+                    </ul>
+                    <h4>Data</h4>
+                    <p>Round progress can have an associated data in JSON format. This data can be retrieved when the
+                       user clicks on the round progress.</p>
+                    <h4>Click handler</h4>
+                    <p>To implement the Callback of this listener, just set the attirbute
+                        <code>round_progress_listener</code> in <code>round_progress.data</code>, as following:</p>
+                    <pre>
+round_progress.data.round_progress_listener=function( data ) {
+    console.log( data );
+};
+                    </pre>
+                </div>
+                <div class="about">
+                    <h3>Technologies</h3>
+                    <div class="techs" id="progress-techs"></div>
+                    <h3>Implementations</h3>
+                    <div id="progress-implem"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="progress-l-c" class="two-cols">
+        <div>
+            <h1 class="graph-title">Progress Line</h1>
+            <p class="content"></p>
+            <h3>Explain</h3>
+            <p class="explain"></p>
+        </div>
+        <div id="progress-linear">
+            <div id="linear_progress_1"
+                 value="50"
+                 width="500"
+                 style="color:#C2024F; width: 100%"
+                 stroke="10">
+            </div>
+            <div id="linear_progress_2"
+                 value="80"
+                 width="400"
+                 style="color:#FCB13F; width: 100%"
+                 stroke="3">
+            </div>
+
+            <div id="linear_progress_5"
+                 value="50"
+                 width="400"
+                 style="color:#009696; width: 100%"
+                 stroke="10">
+            </div>
+            <div id="linear_progress_6"
+                 value="80"
+                 width="500"
+                 style="color:#D2D945; width: 100%"
+                 stroke="3">
+            </div>
+
+            <div id="linear_progress_3"
+                 value="50"
+                 width="400"
+                 style="color:#C2024F; width: 100%"
+                 stroke="10">
+            </div>
+            <div id="linear_progress_4"
+                 value="80"
+                 width="500"
+                 style="color:#FCB13F; width: 100%"
+                 stroke="3">
+            </div>
+        </div>
+    </div>
+    <div class="code-supercontainer">
+        <h2>Code</h2>
+        <div class="code-container">
+            <div>
+                <h2>Usage</h2>
+                <div class="usage" id="progress-usage-l">
+                    <ul>
+                        <li>To use the stable version, include a <code>div</code> in your HTML, and give it an
+                            <code>id</code> that starts with <code>linear_progress</code>.
+                        </li>
+                        <li>One the document is ready, the library calls the function
+                            <code>linear_progress.init(parent)</code>, with the parameter <code>parent</code> set to the
+                            <code>'body'</code> tag,
+                            this will look for id's that matches the word, as discribed in the previous requirement, in
+                            parent's childs recursively, thus rendering the progress bar.<br>
+                            If you only want to render a specific or a set elements of "progress bar", you can call the
+                            function by yourself and passing the parameter, as a <a
+                                    href="https://api.jquery.com/category/selectors/" rel="nofollow">jQuery selector</a>,
+                            to the <strong>parent</strong> of the progress bar
+                        </li>
+                    </ul>
+                    <h4>Attributes</h4>
+                    <ul>
+                        <li><code>value</code> : Set the current progress for the bar</li>
+                        <li><code>width</code> : Set the total width of the bar in <em>px</em></li>
+                        <li><code>stroke</code>: Set the stroke of the bar</li>
+                        <li><code>style</code> : Has three library relevant styles:
+                            <ul>
+                                <li><code>color</code> : Sets the color for the current progress for the bar</li>
+                                <li><code>text-decoration-color</code> : Sets the color for the track of the bar, i.e:
+                                                                       The progress left to 100%
+                                </li>
+                                <li><code>font</code> : The font for the progress text</li>
+                                <li><code>width</code> : Width of the element through css</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about">
+                    <h3>Technologies</h3>
+                    <div class="techs" id="progress-techs-linear"></div>
+                    <h3>Implementations</h3>
+                    <div id="progress-implem-linear"></div>
+                </div>
+            </div>
+            <div>
+                <h2>Sample</h2>
+                <pre class="code" id="progress-code-l"></pre>
+                <pre class="code">
+&lt;div id=&quot;linear_progress_1&quot;
+      value=&quot;50&quot;
+      width=&quot;189&quot;
+      style=&quot;color:#C2024F;&quot;
+      stroke=&quot;10&quot;&gt;
+&lt;/div&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+

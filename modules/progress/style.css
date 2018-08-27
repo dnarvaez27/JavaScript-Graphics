@@ -1,0 +1,9 @@
+#progress-l-c,
+#progress {
+    grid-gap: 70px;
+}
+
+#progress-techs-linear,
+#progress-techs {
+    grid-template-columns: repeat(3, 1fr);
+}

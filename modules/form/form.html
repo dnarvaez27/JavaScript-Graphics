@@ -1,0 +1,167 @@
+<div id="form-container">
+    <button id="form-close-btn" class="close-btn">&times;</button>
+    <div id="form" class="two-cols">
+        <div>
+            <div id="choice-form"></div>
+            <div id="choice-form-2"></div>
+        </div>
+        <div>
+            <h1 class="graph-title">Choice Form</h1>
+            <p class="content"></p>
+            <h3>Explain</h3>
+            <p class="explain"></p>
+        </div>
+    </div>
+    <div class="code-supercontainer">
+        <h2>Code</h2>
+        <div class="code-container">
+            <div>
+                <h2>Sample</h2>
+                <pre class="code" id="form-code"></pre>
+                <div class="about">
+                    <h3>Technologies</h3>
+                    <div class="techs" id="form-techs">
+
+                    </div>
+                    <h3>Implementations</h3>
+                    <div id="form-implem"></div>
+                </div>
+            </div>
+            <div>
+                <h2>Usage</h2>
+                <div class="usage">
+                    <p>The usage of this library is made through the <code>ChoiceForm</code> Object.<br>
+                        <strong>IMPORTANT:</strong> This must be started when the document is ready</p>
+                    <ul>
+                        <li><code>new ChoiceForm(id)</code>: <em>Constructor</em>, requires the id of the
+                            <code>div</code> container.
+                        </li>
+                        <li><code>*choice_config.question</code>: <em>[Required]</em> The question of the form component
+                            <code>[String]</code></li>
+                        <li><code>*choice_config.description</code>: <em>[Optional]</em> A description for the question
+                            <code>[String]</code></li>
+                        <li><code>*.choice_config.answer</code>: <em>[Required]</em> The id of the correct answer</li>
+                        <li><code>*.start()</code>: <em>[Required]</em> Builds the basic info for the question (i.e:
+                                                  Question, description, ...)
+                        </li>
+                        <li><code>new *.Answer(id, content)</code>: Creates a new Answer for the form component with a
+                                                                  unique id and the content of the answer
+                        </li>
+                    </ul>
+                    <blockquote>
+                        <p>Note: <strong>*.</strong>, refers to the object returned from the constructor<br>
+                           More customization available soon</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="form-drag" class="two-cols">
+        <div>
+            <div id="drag-container" style="height: 150px"></div>
+            <div id="drag-container_2" style="height: 150px"></div>
+        </div>
+        <div>
+            <h1 class="graph-title">Drag Form</h1>
+            <p class="content"></p>
+            <h3>Explain</h3>
+            <p class="explain"></p>
+        </div>
+    </div>
+    <div class="code-supercontainer">
+        <h2>Code</h2>
+        <div class="code-container">
+            <div>
+                <h2>Sample</h2>
+                <pre class="code" id="form-drag-code"></pre>
+                <div class="about">
+                    <h3>Technologies</h3>
+                    <div class="techs" id="form-drag-techs">
+
+                    </div>
+                    <h3>Implementations</h3>
+                    <div id="form-drag-implem"></div>
+                </div>
+            </div>
+            <div>
+                <h2>Usage</h2>
+                <div class="usage">
+                    <p>The use of this library is made through the <code>DragComponent</code> Object.<br>
+                        <strong>IMPORTANT:</strong> This must be started when the document is ready</p>
+                    <ul>
+                        <li><code>new DragForm(id)</code>: <em>Constructor</em>, requires the id of the <code>div</code>
+                                                         container
+                        </li>
+                        <li><code>*.drag_config.question</code>: <em>[Required]</em> The question of the form component
+                            <code>[String]</code></li>
+                        <li><code>*.drag_config.description</code>: <em>[Optional]</em> A description for the question
+                            <code>[String]</code></li>
+                        <li><code>new *.Response(boxes)</code>: <em>[Required]</em> Creates a new Response box for the
+                                                              form component with an array of objects with
+                            <code>values</code> property with each word of the answer
+                        </li>
+                        <li><code>*.draw()</code>: <em>[Required]</em> Start the component and draws the SVG components
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="form-open" class="two-cols">
+        <div>
+            <div id="open-form"></div>
+            <div id="open-form-2"></div>
+        </div>
+        <div>
+            <h1 class="graph-title">Open Form</h1>
+            <p class="content"></p>
+            <h3>Explain</h3>
+            <p class="explain"></p>
+        </div>
+    </div>
+    <div class="code-supercontainer">
+        <h2>Code</h2>
+        <div class="code-container">
+            <div>
+                <h2>Sample</h2>
+                <pre class="code" id="form-open-code"></pre>
+                <div class="about">
+                    <h3>Technologies</h3>
+                    <div class="techs" id="form-open-techs">
+
+                    </div>
+                    <h3>Implementations</h3>
+                    <div id="form-open-implem"></div>
+                </div>
+            </div>
+            <div>
+                <h2>Usage</h2>
+                <div class="usage">
+                    <p>The usage of this library is made through the <code>OpenForm</code> Object.<br>
+                       The information captured from the input <code>textarea</code> component is normalized and
+                       compared without punctuation or diacritics accents<br>
+                        <strong>IMPORTANT:</strong> This must be started when the document is ready</p>
+                    <ul>
+                        <li><code>new OpenForm(id)</code>: <em>Constructor</em>, requires the id of the <code>div</code>
+                                                         container.
+                        </li>
+                        <li><code>*.opem_config.question</code>: <em>[Required]</em> The question of the form component
+                            <code>[String]</code></li>
+                        <li><code>*.open_config.description</code>: <em>[Optional]</em> A description for the question
+                            <code>[String]</code></li>
+                        <li><code>*.open_config.answers</code>: <em>[Required]</em> An array of correct answers</li>
+                        <li><code>*.start()</code>: <em>[Required]</em> Builds the basic info for the question (i.e:
+                                                  Question, description, ...)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

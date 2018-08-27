@@ -1,0 +1,9 @@
+#chart {
+    grid-template-columns: 2fr 1fr;
+}
+
+#linear-container {
+    height: 500px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5)
+}

@@ -23,6 +23,9 @@
 <body>
     <div id="radial"></div>
     <script>
+
+        'use strict';
+
         let tree = new Tree();
         tree.add( { id: 0, data: { hide: true } }, undefined );
 
@@ -38,6 +41,10 @@
                               semester: '2015-20',
                               code: 'ISIS-1001',
                               professor: [ 'Francisco Rueda Fajardo' ]
+                          },
+                          style: {
+                              bg: '#009696',
+                              fg: '#f2f7ff'
                           }
                       }
                   }, 0 );
@@ -651,6 +658,8 @@
                       }
                   }, 'noreq_3' );
 
+
+        let radial = document.getElementById( 'radial' );
         radial = new Radial( radial, true );
         radial.radial_config.tree = tree;
         radial.radial_config.clickListener = function ( elem ) {

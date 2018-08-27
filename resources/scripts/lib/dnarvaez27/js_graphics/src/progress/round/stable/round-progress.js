@@ -1,9 +1,5 @@
 'use strict';
 
-function Progress() {
-    // Just a way of isolate the class
-}
-
 Progress.Round = function () {
     let self = this;
 

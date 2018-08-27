@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body, html, #container {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    background-color: #212121;
+    position: absolute;
+    overflow-x: hidden;
+}
+
+#container > h1:first-child {
+    color: white;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+#js-graphics-container {
+    /*position: relative;*/
+    /*display: grid;*/
+    /*grid-template-columns: repeat(2, 1fr);*/
+    /*grid-template-rows: repeat(2, 1fr);*/
+    /*grid-gap: 10px;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+}
+
+.js-item {
+    background-color: white;
+    padding: 40px 20px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    box-shadow: 0 1px 20px -1px black;
+    width: calc(50% - 40px - 10px);
+    position: absolute;
+    min-height: calc(50vh - 161px);
+    text-align: center;
+    overflow-y: auto;
+}
+
+.js-item.open {
+    /*position: absolute;*/
+    width: calc(100% - 40px) !important;
+    min-height: calc(100% - 161px);
+    z-index: 100;
+    left: 0 !important;
+    top: 81px !important;
+    cursor: auto;
+    max-height: calc(100% - 300px);
+}
+
+.js-item:hover {
+    transform: scale(1.05);
+    z-index: 3;
+}
+
+.js-item.open:hover {
+    transform: none;
+}
+
+.js-item > img {
+    height: 150px;
+    display: block;
+    margin: auto;
+}
+
+.js-item > h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.js-item > span {
+    text-align: center;
+    color: darkgray;
+}
+
+.hidden {
+    display: none;
+}
+
+.subcontainer {
+    transition: opacity .5s ease-in-out;
+    opacity: 1;
+    font-family: 'Raleway', sans-serif;
+}
+
+.subcontainer.hidden {
+    opacity: 0;
+}
+
+pre {
+    white-space: pre-wrap;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+}
+
+code {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: #f6f8fa;
+    border: 0;
+
+    text-align: left;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+}
+
+.usage {
+    text-align: left;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+#me {
+    position: absolute;
+    margin: auto;
+    height: 30vh;
+    width: 30vh;
+    background: url(https://avatars1.githubusercontent.com/u/12243937?s=460&v=4) no-repeat center;
+    background-size: cover;
+    border: 5px solid #212121;
+    border-radius: 50%;
+    z-index: 50;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    box-shadow: 0 1px 10px -2px black;
+}
+
+#me:hover {
+    height: 40vh;
+    width: 40vh;
+}
+
+#me.out {
+    height: 0;
+    width: 0;
+}
+
+.two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.two-cols > div:nth-child(2) {
+    margin: auto;
+}
+
+.close-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50%;
+    border: none;
+    background-color: firebrick;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.code-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.code-container > * {
+    flex: 1;
+    margin: 10px;
+}
+
+.techs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.tech-item img {
+    height: 50px;
+}
+
+hr {
+    margin: 80px;
+}
+
+.code {
+    text-align: left;
+}
+
+.code-supercontainer {
+    box-shadow: 0 1px 15px -3px black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.about {
+    background-color: #212121;
+    color: white;
+    border-radius: 20px;
+    padding: 20px 0px;
+}
+
+.about a {
+    color: lightgray;
+}

@@ -1,0 +1,128 @@
+<div id="tree-container">
+    <button id="tree-close-btn" class="close-btn">&times;</button>
+    <div id="tree" class="two-cols">
+        <div id="radial"></div>
+        <div>
+            <h1 class="graph-title">Radial Tree (Unfinished)</h1>
+            <p class="content"></p>
+            <h3>Explain</h3>
+            <p class="explain"></p>
+        </div>
+    </div>
+    <div class="code-supercontainer">
+        <h2>Code</h2>
+        <div class="code-container">
+            <div>
+                <h2>Sample</h2>
+                <pre class="code" id="tree-code"></pre>
+            </div>
+            <div>
+                <h2>Usage</h2>
+                <div class="usage" id="chart-usage">
+                    <ol>
+                        <li>You must have a <code>div</code> where the SVG will be contained</li>
+                        <li>Configurate the library to your needs through the <code>radial_config</code> JS object, with
+                            the following options:
+                            <ul>
+                                <li><code>container_id</code>: The <code>id</code> of the div which will contain the SVG
+                                                             radial tree
+                                </li>
+                                <li><code>tree</code>: The Tree data structure configured with the information required.
+                                                     See more information below
+                                </li>
+                                <li><code>clickListener</code>: An event handler when a node of the radial tree is
+                                                              clicked. The parameter associated to the handler is the
+                                                              data defined in the Tree node
+                                </li>
+                                <li><code>loadOnReady</code>: Sets if the SVG will start render on
+                                    <code>document.ready</code>. To call the render manually, call the <code>radial_restart()</code>
+                                                            method. <strong>This can be modified in the source code of
+                                                                            the library</strong></li>
+                            </ul>
+                        </li>
+                        <li>Personalize the radial tree through the <code>radial_attrs</code> JS object with the
+                            following options:
+                            <ul>
+                                <li><code>inc</code>: The increment in pixels of the different levels of the radial
+                                                    tree. By default, this attribute will be calculated to fit the
+                                                    container <strong>height</strong></li>
+                                <li><code>size</code>: The size of each node in the radial tree. By default it is
+                                                     configured to 25px
+                                </li>
+                                <li><code>padding</code>: The padding between the nodes of the tree. By default it is
+                                                        configured to 10px
+                                </li>
+                                <li><code>style</code>: Configures the style of the visual elements of the radial tree:
+                                    <ul>
+                                        <li><code>line</code>: Sets the SVG style for the lines between two nodes of the
+                                                             radial tree.
+                                        </li>
+                                        <li><code>ring</code>: Sets the SVG style for the ring levels of the radial
+                                                             tree.
+                                        </li>
+                                        <li><code>node</code>: Sets the different configurations for the nodes of the
+                                                             radial tree:
+                                            <ul>
+                                                <li><code>bg</code>: Sets the background color of every default node in
+                                                                   the radial tree
+                                                </li>
+                                                <li><code>fg</code>: Sets the foreground color of every default node in
+                                                                   the radial tree
+                                                </li>
+                                                <li><code>anim</code>: Sets the scale for the nodes when the mouse is
+                                                                     over the nodes of the radial tree.
+                                                                     This <strong>object</strong> has two properties:
+                                                    <ul>
+                                                        <li><code>scale</code>: Sets the scale of the whole node of the
+                                                                              radial tree
+                                                        </li>
+                                                        <li><code>textScale</code>: Sets the scale of the content of the
+                                                                                  radial tree's node
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <h2>Tree Data Structure</h2>
+                    <p>The Tree Data Structure, provides an easy way of adding nodes to the tree through the function
+                        <code>add(node, parent)</code>
+                       where the <code>node</code> parameter states for the node to be added, and the
+                        <code>parent</code> states for the <code>id</code> of the parent of the new node.<br>
+                       Each node can contain the following attributes:</p>
+                    <ul>
+                        <li><code>id</code>: Id of the node</li>
+                        <li><code>data</code>: The data associated to the node, this can contain more information to
+                                             display in the radial tree:
+                            <ul>
+                                <li><code>style</code>: This JS object, contains the data needed to set de
+                                    <code>bg</code> (Background) and the <code>fg</code> (Foreground) of the node.
+                                </li>
+                                <li><code>display</code>: This object contains the data that will be shown in the radial
+                                                        tree. This object has four fields:
+                                    <ul>
+                                        <li><code>normal</code>: The data that will be shown in each node.</li>
+                                        <li><code>hover</code>: The data that will be shown in the node when the user
+                                                              hovers the mouse
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="about">
+                    <h3>Technologies</h3>
+                    <div class="techs" id="tree-techs"></div>
+                    <h3>Implementations</h3>
+                    <div id="tree-implem"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
