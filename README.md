@@ -22,10 +22,10 @@ No others requirements are necesary.
 ## Authors
 * [David Narvaez](http://dnarvaez27.github.io)
 
-##Licence
+## Licence
 [MIT](https://github.com/dnarvaez27/JavaScript-Graphics/blob/gh-pages/LICENSE)
 
-##Screenshots
+## Screenshots
 ![SS1](https://raw.githubusercontent.com/dnarvaez27/JavaScript-Graphics/gh-pages/resources/imgs/SS/SS1.JPG)
 ![SS2](https://raw.githubusercontent.com/dnarvaez27/JavaScript-Graphics/gh-pages/resources/imgs/SS/SS2.JPG)
 ![SS3](https://raw.githubusercontent.com/dnarvaez27/JavaScript-Graphics/gh-pages/resources/imgs/SS/SS3.JPG)
