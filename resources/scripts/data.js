@@ -3,7 +3,7 @@ export const data = {
     Charts: {
         name: 'Charts',
         description: 'Library to draw charts',
-        img: `${img_path}/Charts_Linear.jpg`,
+        img: 'https://raw.githubusercontent.com/dnarvaez27/JavaScript-Graphics/gh-pages/resources/scripts/lib/dnarvaez27/js_graphics/imgs/Charts_Linear.JPG',
         html: './modules/chart/chart.html',
         onOpen: function () {
             data.Charts.childs[ 0 ].code();
@@ -160,7 +160,7 @@ export const data = {
     Forms: {
         name: 'Forms',
         description: 'Library to draw complex forms with validation mainly for tests',
-        img: `${img_path}/FormDrag.jpg`,
+        img: 'https://raw.githubusercontent.com/dnarvaez27/JavaScript-Graphics/gh-pages/resources/scripts/lib/dnarvaez27/js_graphics/imgs/FormDrag.JPG',
         html: './modules/form/form.html',
         onOpen: function () {
             function laod( index, prefix ) {
@@ -399,7 +399,7 @@ export const data = {
     Progress: {
         name: 'Progress',
         description: 'Library to draw progress graphics',
-        img: `${img_path}/Progress_Round.jpg`,
+        img: 'https://raw.githubusercontent.com/dnarvaez27/JavaScript-Graphics/gh-pages/resources/scripts/lib/dnarvaez27/js_graphics/imgs/Progress_Round.JPG',
         html: './modules/progress/progress.html',
         onOpen: function () {
             (function () {
@@ -582,7 +582,7 @@ export const data = {
     Tree: {
         name: 'Tree',
         description: 'Library to display trees',
-        img: `${img_path}/RadialTree.jpg`,
+        img: 'https://raw.githubusercontent.com/dnarvaez27/JavaScript-Graphics/gh-pages/resources/scripts/lib/dnarvaez27/js_graphics/imgs/RadialTree.JPG',
         html: './modules/tree/tree.html',
         onOpen: function () {
             data.Tree.childs[ 0 ].code();

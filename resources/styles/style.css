@@ -19,16 +19,6 @@ body, html, #container {
     font-family: 'Raleway', sans-serif;
 }
 
-#js-graphics-container {
-    /*position: relative;*/
-    /*display: grid;*/
-    /*grid-template-columns: repeat(2, 1fr);*/
-    /*grid-template-rows: repeat(2, 1fr);*/
-    /*grid-gap: 10px;*/
-    /*height: 100%;*/
-    /*width: 100%;*/
-}
-
 .js-item {
     background-color: white;
     padding: 40px 20px;
